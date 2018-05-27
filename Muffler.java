@@ -8,6 +8,9 @@ File Name: Door.java
 */
 import java.util.*;
 
+
+
+
 public class Muffler {
    /**
    The customer who is buying the muffler.
@@ -33,9 +36,9 @@ public class Muffler {
     cost = 9999.99;
     }
 /**
-Constructs a Muffler Object that is not defaulted.
-@param customerPssThrgh the name of the customer
-@param priceCodePssThrgh the pricecode corresponding to the muffler the customer desires
+*Constructs a Muffler Object that is not defaulted.
+*@param customerPssThrgh the name of the customer
+*@param priceCodePssThrgh the pricecode corresponding to the muffler the customer desires
 */
 
     
@@ -56,6 +59,13 @@ Pulls the price code of the muffler the customer wants
 */
 
    public String getPriceCode() {
+      String[] possibilities = new String[] {"A", "A3", "B", "B3", "BL", "C", "C3", "CL", "D", "D3", "DL", "E", "E3", "EL", "F3", "FL"};
+      boolean id = Arrays.asList(possibilities).contains(priceCode);
+      if(!id){
+          priceCode = "Error: please enter a valid price code.";
+      } else {
+         priceCode = priceCode;
+       }
       return priceCode;
    }
    
@@ -96,7 +106,8 @@ This outputs format of the getCustomer, getPriceCode, and computeCost pieces in
 an easily readable format.  
 */
    public String toString(){
-     String words = getCustomer() + "\t" + getPriceCode() + "\t" + getCost();
+   String rounded = String.format("%.2f", getCost());
+     String words = getCustomer() + " \t " + getPriceCode() + " \t " + "$" + rounded;
       return words;
       }
 /**
@@ -128,6 +139,7 @@ down by letter and warranty choice.
                break;
             case 'F':
                priceFactor = 1.50;
+               break;
             default:
                priceFactor = 1.00;
             }
@@ -140,7 +152,8 @@ down by letter and warranty choice.
                   warranty = 0.00;
                }
          
-         cost = (39.95 + warranty) * priceFactor;
+         cost = Math.round((39.95 + warranty) * priceFactor * 100.00) / 100.00;
+         
          return cost;           
        }            
 }    
