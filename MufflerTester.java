@@ -21,31 +21,31 @@ File Name: DoorTester.java
          System.out.println(ryan.getCustomer() + " " + ryan.getPriceCode() + " " + ryan.getCost());
          System.out.println("Expected: Ryan A 39.95");
          System.out.println("***Tests updateCustomer***");
-         Muffler steve = new Muffler("Steve", "A4");
+         Muffler steve = new Muffler("Steve", "A3");
          steve.setCustomer("Becky");
-         System.out.println("This should change the name, Steve, to Becky. New Customer is: " + steve.getCustomer() + " " + steve.getPriceCode().charAt(0));
-         System.out.println("Expected: New Customer is: Becky A");
+         System.out.println("This should change the name, Steve, to Becky. New Customer is: " + steve.getCustomer() + " Price code is: " + steve.getPriceCode());
+         System.out.println("Expected: New Customer is: Becky Price code is: A");
          System.out.println("***Tests updatePriceCode***");
          Muffler rebecca = new Muffler("Rebecca", "C3");
          rebecca.updatePriceCode("BL");
          System.out.println("This will print the price code for Rebecca. " + rebecca.getCustomer() + " " + rebecca.getPriceCode() + 
          " " + rebecca.getCost());
          System.out.println("Expectation: Rebecca BL 48.1");
-         System.out.println("*** Tests toString***");
+         System.out.println("***Tests toString***");
          Muffler sandy = new Muffler("Sandy", "D3");
          System.out.println(sandy.toString());
          System.out.println("Expected: Sandy <tab> D3 <tab> $51.18");
          System.out.println("***Tests passing a bad priceCode to toString()***");
          Muffler brad = new Muffler("Brad", "Z5");
          System.out.println(brad.toString());
-         System.out.println("Expected: Brad <tab> Error: please enter a valid price code. <tab> 9999.99");
+         System.out.println("Expected: Brad <tab> Error: please enter a valid price code. <tab> $9999.99");
          System.out.println("***Tests all possible combinations of priceCode with toString***");
          Muffler christina = new Muffler("Christina", "A");
          System.out.println(christina.toString());
          System.out.println("Expected: Christina   A  $39.95");
          christina.updatePriceCode("A3");
          System.out.println(christina.toString());
-         System.out.println("Expected: Chtistina   A3 $41.95");
+         System.out.println("Expected: Christina   A3 $41.95");
          christina.updatePriceCode("B");
          System.out.println(christina.toString());
          System.out.println("Expected: Christina   B  $42.75");
@@ -91,10 +91,10 @@ File Name: DoorTester.java
          System.out.println("***Test the illegal price codes(AL and F) with toString()***");
          christina.updatePriceCode("AL");
          System.out.println(christina.toString());
-         System.out.println("Expected: Christina   Error: please input a valid price code.  $9999.99");
+         System.out.println("Expected: Christina   Error: please enter a valid price code.  $9999.99");
          christina.updatePriceCode("F");
          System.out.println(christina.toString());
-         System.out.println("Expected: Christina   Error: please input a valid price code. $9999.99");
+         System.out.println("Expected: Christina   Error: please enter a valid price code. $9999.99");
          }
    }
    

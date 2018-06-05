@@ -8,9 +8,6 @@ File Name: Door.java
 */
 import java.util.*;
 
-
-
-
 public class Muffler {
    /**
    The customer who is buying the muffler.
@@ -96,7 +93,7 @@ This is a mutator for customer; you don't want it to return a value, thus the vo
         
 /**
 This updates price code for customers.
-@param updatePriceCode changes the PriceCode to a present value
+@param newPriceCode changes the PriceCode to a present value
 */
    public void updatePriceCode(String newPriceCode){
          priceCode = newPriceCode;
