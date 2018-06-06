@@ -64,7 +64,10 @@ public class Golfer {
 
    public String toString() 
    {
-      return this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse;
+      String words;
+      words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + "\n" + "Score" +
+      "\t" + "Date" + "\t" + "Course" + "\t" + "Course Rating" + "\t" + "Course Slope" + "\n";
+      return words;
    }
 
 /**
