@@ -60,13 +60,14 @@ public class Golfer {
       final int LENGTH = 20;
       String[] values = new String[LENGTH];
    }   
-
-
+/**
+Formats the Golfer constructer with the Table header and Score Array list
+*/
    public String toString() 
    {
       String words;
       words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + "\n" + "Score" +
-      "\t" + "Date" + "\t" + "Course" + "\t" + "Course Rating" + "\t" + "Course Slope" + "\n";
+      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + "\n";
       return words;
    }
 
@@ -95,18 +96,32 @@ public class Golfer {
 /**
    Mutator of name
 */
-   public String setName(String newName)
+   public void setName(String newName)
    {
-      name = newName;
-      return name;
+      if (newName == null)
+      { 
+         System.out.println("Error: must input a new name.");
+         //System.exit(0);  
+      }
+      else 
+      {
+         name = newName;
+      }
    }
 /**
    Mutator of home course
 */
-   public String setHomeCourse(String newHomeCourse)
+   public void setHomeCourse(String newHomeCourse)
    {
-      homeCourse = newHomeCourse;
-      return homeCourse;
+      if (newHomeCourse == null) 
+      {
+         System.out.println("Error: must input a new home course");
+         //System.exit(0);
+      }
+      else
+      {
+         homeCourse = newHomeCourse;
+      }
    }
 /**
    Mutator for idNum 
@@ -117,7 +132,14 @@ public class Golfer {
       idNum = nextIdNum;
       return idNum;
    }
+/**
+   This adds a score to the scores array. 
 
-
+   public addScore(String addCourseName, int addScore, String addDate, double addCourseRating, int addCourseSlope)
+   {
+      int i;
+      Score temp = new Score(addCourseName, addScore, addDate, addCourseRating, addCourseSlope)
+   }
+*/ 
 
 }   

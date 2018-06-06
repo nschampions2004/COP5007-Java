@@ -52,9 +52,8 @@ public class Score
     {
       return courseSlope;
     }
-       
     
-    
+        
     
     public String toString() 
     {

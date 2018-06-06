@@ -17,8 +17,15 @@ public class GolferTest
      System.out.println("Expected: Sherry B. Harry Hollow 1001");
      System.out.println("***Tests setName(), setHomeCourse(), and setIdNum() Mutators***");
      Golfer harriet = new Golfer("Harriet Tubs", "August, AK");
-     System.out.println(harriet.setName("TubsyWubsy") + " " + harriet.setHomeCourse("Maralago") + " " + harriet.getIdNum());
-     System.out.println("Expected: TubsyWubsy Maralago 1002");
+     harriet.setName("TubsyWubsy");
+     harriet.setHomeCourse("Maralago");
+     harriet.getIdNum();
+     System.out.println(harriet.toString());
+     System.out.println("Expected: TubsyWubsy ID Number: 1002 Home Course: Maralago \n Score \t Date \t Course \t Course Rating \t Course Slope");
+     System.out.println("***Testing setName and setCourseName with null values***");
+     harriet.setName(null);
+     harriet.setHomeCourse(null);
+     System.out.println("Expected: Errors from both");
      
      
      
