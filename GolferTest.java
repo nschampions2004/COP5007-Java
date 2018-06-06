@@ -5,11 +5,11 @@ public class GolferTest
      System.out.println("***Tests Default Values***");
      Golfer rappa = new Golfer();
      System.out.println(rappa);
-     System.out.println("Expect __ ID Number: 9999 Home Course: __");
+     System.out.println("Expect __ ID Number: 9999 Home Course: __ \n Score \t Date \t Course \t Course Rating \t Course Slope");
      System.out.println("***Tests Passed Through Values***");
      Golfer hambag = new Golfer("Hambag", "Richmond");
      System.out.println(hambag);
-     System.out.println("Expect: Hambag ID Number: 1000 Home Course: Richmond");
+     System.out.println("Expect: Hambag ID Number: 1000 Home Course: Richmond \n Score \t Date \t Course \t Course Rating \t Course Slope");
      System.out.println("Tests accessor methods for the Golfer name, Golfer homeCourse, Golfer idNum");
      System.out.println("***Tests getName(), getHomeCourse(), and getIdNum() Accessors***");
      Golfer hobby = new Golfer("Sherry B.", "Harry Hollow");
@@ -26,6 +26,8 @@ public class GolferTest
      harriet.setName(null);
      harriet.setHomeCourse(null);
      System.out.println("Expected: Errors from both");
+     Score balla = new Score("Hell's Hole", 70, "06/06/06", 66.6, 144);
+     System.out.println(balla.toString());
      
      
      

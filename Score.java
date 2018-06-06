@@ -10,7 +10,7 @@ public class Score
    
    private int courseSlope;
    
-   public Score() 
+   public Score () 
    {
       courseName = "__";
       score = 9999;
@@ -19,13 +19,13 @@ public class Score
       courseSlope = 9999;  
    }
    
-   public Score(String courseName, int score, String date, double courseRating, int courseSlope)
+   public Score (String courseName, int score, String date, double courseRating, int courseSlope)
    {
-      courseName = courseName;
-      score = score;
-      date = date;
-      courseRating = courseRating;
-      courseSlope = courseSlope;
+      this.courseName = courseName;
+      this.score = score;
+      this.date = date;
+      this.courseRating = courseRating;
+      this.courseSlope = courseSlope;
     }
     
     public String getCourseName()
@@ -51,15 +51,13 @@ public class Score
     public int getCourseSlope()
     {
       return courseSlope;
-    }
-    
-        
-    
+    }  
+      
     public String toString() 
     {
-      return getCourseName() + "\t" + getScore() + "\t" + getDate() + "\t" + getCourseRating() + "\t" + getCourseSlope();
+      return this.courseName + "\t" + this.score + "\t" + this.date + "\t" + this.courseRating + "\t" + this.courseSlope;
     }
-    
+ 
    
 
 
