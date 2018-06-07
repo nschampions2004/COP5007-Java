@@ -26,10 +26,11 @@ public class GolferTest
      harriet.setName(null);
      harriet.setHomeCourse(null);
      System.out.println("Expected: Errors from both");
+     System.out.println("***Test for addScore Method***");
+     hambag.addScore("Hell's Hole", 70, "6/6/06", 66.6, 144);
+     System.out.println(hambag.toString());
+     
      Score balla = new Score("Hell's Hole", 70, "06/06/06", 66.6, 144);
      System.out.println(balla.toString());
-     
-     
-     
    }
 }

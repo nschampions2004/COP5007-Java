@@ -25,11 +25,16 @@ public class Golfer {
 /**
    Storage of the golfer's scores.
 */
-   private int[] scores;
+   private Score[] scores;
 /**
    Counter of Golfer's IdNum
 */
    private static int nextIdNum = 999;
+/**
+   Counter for Golfer's Array
+*/
+   private static int i;
+
 /**
    Golfer method that defaults.
 */
@@ -43,8 +48,9 @@ public class Golfer {
       this.homeCourse = homeCourse;
       this.idNum = idNum;
       final int LENGTH = 20;
-      String[] values = new String[LENGTH];
-      }
+      Score[] values = new Score[LENGTH];
+      values = this.scores;
+     }
 /**
 *Constructs a parameterized Golfer Object.
 *@param name the name of the golpher
@@ -52,13 +58,15 @@ public class Golfer {
 */    
    public Golfer(String name, String homeCourse)
    {
+      int currentSize = 0;
       idNum = 0;
       nextIdNum++;
       this.idNum = nextIdNum;
       this.name = name;
       this.homeCourse = homeCourse;
       final int LENGTH = 20;
-      String[] values = new String[LENGTH];
+      Score[] values = new Score[LENGTH];
+      values = this.scores;
    }   
 /**
 Formats the Golfer constructer with the Table header and Score Array list
@@ -67,7 +75,7 @@ Formats the Golfer constructer with the Table header and Score Array list
    {
       String words;
       words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + "\n" + "Score" +
-      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + "\n";
+      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + "\n";       
       return words;
    }
 
@@ -85,7 +93,7 @@ Formats the Golfer constructer with the Table header and Score Array list
    {
       return homeCourse;
    }
-     
+        
 /** 
    Accessor for idNum 
 */
@@ -100,8 +108,7 @@ Formats the Golfer constructer with the Table header and Score Array list
    {
       if (newName == null)
       { 
-         System.out.println("Error: must input a new name.");
-         //System.exit(0);  
+         System.out.println("Error: must input a new name."); 
       }
       else 
       {
@@ -116,7 +123,6 @@ Formats the Golfer constructer with the Table header and Score Array list
       if (newHomeCourse == null) 
       {
          System.out.println("Error: must input a new home course");
-         //System.exit(0);
       }
       else
       {
@@ -132,14 +138,22 @@ Formats the Golfer constructer with the Table header and Score Array list
       idNum = nextIdNum;
       return idNum;
    }
-/**
-   This adds a score to the scores array. 
 
-   public addScore(String addCourseName, int addScore, String addDate, double addCourseRating, int addCourseSlope)
+/**   
+   This adds a score to the scores array. 
+*/
+
+   public void addScore(String addCourseName, int addScore, String addDate, double addCourseRating, int addCourseSlope)
    {
-      int i;
-      Score temp = new Score(addCourseName, addScore, addDate, addCourseRating, addCourseSlope)
-   }
-*/ 
+      Score temp = new Score(addCourseName, addScore, addDate, addCourseRating, addCourseSlope);
+      Score[] copy = new Score[scores.length + 1];
+      for(int i = 0; i < scores.length; i ++)
+      {
+         copy[i] = scores[i];
+      }
+      copy[copy.length - 1] = temp;
+      this.scores = copy;  
+    }
+ 
 
 }   
