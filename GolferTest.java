@@ -28,8 +28,9 @@ public class GolferTest
      System.out.println("Expected: Errors from both");
      System.out.println("***Test for addScore Method***");
      hambag.addScore("Hell's Hole", 70, "06/06/06", 66.6, 144);
+     hambag.addScore("Jimmyozer's", 65, "05/05/05", 55.5, 145);
      System.out.println(hambag.toString());
-     System.out.println("Expected: \n Hambag ID Number: 1000 Home Course: Richmond \n Score  \t  Date  \t  Course  \t  Course Rating  \t  Course Slope  \n 70  \t  06/06/06  \t  Hell's Hole  \t  66.6  144");
+     System.out.println("Expected: \n Hambag ID Number: 1000 Home Course: Richmond \n Score  \t  Date  \t  Course  \t  Course Rating  \t  Course Slope  \n 70  \t  06/06/06  \t  Hell's Hole  \t  66.6  \t  144  \n  65  \t 05/05/05  \t  Jimyozer's  \t  55.5  \t  145");
      System.out.println("***Test for toString on the Score Method***");
      Score balla = new Score("Hell's Hole", 70, "06/06/06", 66.6, 144);
      System.out.println(balla.toString());

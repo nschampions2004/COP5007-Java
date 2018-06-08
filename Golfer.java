@@ -74,9 +74,9 @@ Formats the Golfer constructer with the Table header and Score Array list
    public String toString() 
    {
       String words;
-      words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + "\n" + "Score" +
-      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + "\n" +
-      Arrays.toString(scores);       
+      words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + " \n " + "Score" +
+      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + " \n " +
+      Arrays.asList(scores).toString().replaceFirst("]", "").replace(", ", "").replace("[","");       
       
       return words;
    }
@@ -157,7 +157,7 @@ Formats the Golfer constructer with the Table header and Score Array list
          }
       }
       Score[] copy = new Score[z + 1];
-      for(i = 0; i < z + 1; i++)
+      for(i = 0; i < z; i++)
       {
          copy[i] = scores[i];
       }
