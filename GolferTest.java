@@ -27,9 +27,10 @@ public class GolferTest
      harriet.setHomeCourse(null);
      System.out.println("Expected: Errors from both");
      System.out.println("***Test for addScore Method***");
-     hambag.addScore("Hell's Hole", 70, "6/6/06", 66.6, 144);
+     hambag.addScore("Hell's Hole", 70, "06/06/06", 66.6, 144);
      System.out.println(hambag.toString());
-     
+     System.out.println("Expected: \n Hambag ID Number: 1000 Home Course: Richmond \n Score  \t  Date  \t  Course  \t  Course Rating  \t  Course Slope  \n 70  \t  06/06/06  \t  Hell's Hole  \t  66.6  144");
+     System.out.println("***Test for toString on the Score Method***");
      Score balla = new Score("Hell's Hole", 70, "06/06/06", 66.6, 144);
      System.out.println(balla.toString());
    }

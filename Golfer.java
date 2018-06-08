@@ -25,7 +25,7 @@ public class Golfer {
 /**
    Storage of the golfer's scores.
 */
-   private Score[] scores;
+   private Score[] scores = new Score[100];
 /**
    Counter of Golfer's IdNum
 */
@@ -75,7 +75,9 @@ Formats the Golfer constructer with the Table header and Score Array list
    {
       String words;
       words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + "\n" + "Score" +
-      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + "\n";       
+      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + "\n" +
+      Arrays.toString(scores);       
+      
       return words;
    }
 
@@ -145,14 +147,22 @@ Formats the Golfer constructer with the Table header and Score Array list
 
    public void addScore(String addCourseName, int addScore, String addDate, double addCourseRating, int addCourseSlope)
    {
+      int z = 0;
       Score temp = new Score(addCourseName, addScore, addDate, addCourseRating, addCourseSlope);
-      Score[] copy = new Score[scores.length + 1];
-      for(int i = 0; i < scores.length; i ++)
+      for(int i = 0; i < scores.length; i++)
+      {
+         if(scores[i] != null)
+         {
+             z++;
+         }
+      }
+      Score[] copy = new Score[z + 1];
+      for(i = 0; i < z + 1; i++)
       {
          copy[i] = scores[i];
       }
-      copy[copy.length - 1] = temp;
-      this.scores = copy;  
+      copy[z] = temp;
+      this.scores = copy;
     }
  
 

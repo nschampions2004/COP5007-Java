@@ -55,7 +55,8 @@ public class Score
       
     public String toString() 
     {
-      return this.courseName + "\t" + this.score + "\t" + this.date + "\t" + this.courseRating + "\t" + this.courseSlope;
+      return getScore() + " \t " + getDate() + " \t " + getCourseName() + 
+      " \t " + getCourseRating() + " \t " + getCourseSlope() + " \n ";
     }
  
    
