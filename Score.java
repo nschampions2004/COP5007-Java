@@ -68,6 +68,31 @@ public class Score
       return courseSlope;
     }  
       
+    public void setCourseName(String newCourseName)
+    {
+        courseName = newCourseName;
+    }
+    
+    public void setScore(int newScore)
+    {
+         score = newScore;
+    }
+    
+    public void setDate(String setDate)
+    {
+         date = setDate;
+    }
+    
+    public void setCourseRating(double newCourseRating)
+    {
+        courseRating = newCourseRating;
+    }
+    
+    public void setCourseSlope(int newCourseSlope)
+    {
+         courseSlope = newCourseSlope;
+    }
+     
     public String toString() 
     {
       return getScore() + " \t " + getDate() + " \t " + getCourseName() + 

@@ -37,6 +37,14 @@ public class GolferTest
      System.out.println("***Test for Score's Valid Score, Course Rating, and Course Slope ***");
      Score balla1 = new Score("Hell's Hole", 12, "06/05/2013", 212, 1989);
      System.out.println("Expected: Please enter a valid 18 Hole Score. \n Please enter a valid Course Rating. \n Please enter a valid Course Slope.");
-     
+     System.out.println("***Test for all mutator methods in Score.java***");
+     Score balla2 = new Score("Hello", 44, "06/05/13", 144, 133);
+     balla2.setCourseName("ByEEEEE");
+     balla2.setScore(55);
+     balla2.setDate("06/06/06");
+     balla2.setCourseRating(76);
+     balla2.setCourseSlope(122);
+     System.out.println(balla2.toString());
+     System.out.println("Expected: 55 \t 06/06/06 \t ByEEEEE \t 76 \t 122");
    }
 }
