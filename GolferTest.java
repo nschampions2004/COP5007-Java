@@ -34,5 +34,9 @@ public class GolferTest
      System.out.println("***Test for toString on the Score Method***");
      Score balla = new Score("Hell's Hole", 70, "06/06/06", 66.6, 144);
      System.out.println(balla.toString());
+     System.out.println("***Test for Score's Valid Score, Course Rating, and Course Slope ***");
+     Score balla1 = new Score("Hell's Hole", 12, "06/05/2013", 212, 1989);
+     System.out.println("Expected: Please enter a valid 18 Hole Score. \n Please enter a valid Course Rating. \n Please enter a valid Course Slope.");
+     
    }
 }

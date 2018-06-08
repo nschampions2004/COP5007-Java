@@ -21,6 +21,21 @@ public class Score
    
    public Score (String courseName, int score, String date, double courseRating, int courseSlope)
    {
+      if(score < 40 || score > 200)
+      {
+         System.out.println("Please enter a valid 18 Hole Score.");
+         score = 9999;
+      }
+      if(courseRating < 60 || courseRating > 80)
+      {
+         System.out.println("Please enter a valid Course Rating.");
+         courseRating = 9999;
+      }
+      if(courseSlope < 55 || courseSlope > 155)
+      {
+         System.out.println("Please enter a valid Course Slope.");
+         courseSlope = 9999;
+      }
       this.courseName = courseName;
       this.score = score;
       this.date = date;

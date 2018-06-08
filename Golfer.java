@@ -40,7 +40,6 @@ public class Golfer {
 */
    public Golfer() 
    {
-  
       name = "__";
       homeCourse = "__";
       idNum = 9999;
@@ -73,12 +72,25 @@ Formats the Golfer constructer with the Table header and Score Array list
 */
    public String toString() 
    {
-      String words;
-      words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + " \n " + "Score" +
-      " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + " \n " +
-      Arrays.asList(scores).toString().replaceFirst("]", "").replace(", ", "").replace("[","");       
-      
-      return words;
+      String words = "";
+      boolean empty = true;
+      for (int i = 0; i < scores.length; i++)
+      {
+         if(scores[i] == null)
+         {
+            empty = false;
+            words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + " \n " + "Score" +
+         " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + " \n ";
+            break;
+         }
+         else 
+         {
+         words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + " \n " + "Score" +
+         " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + " \n " + 
+         Arrays.asList(scores).toString().replaceFirst("]", "").replace(", ", "").replace("[","");
+         }
+       }  
+    return words;
    }
 
 /**
