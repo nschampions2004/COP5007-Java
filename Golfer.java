@@ -205,7 +205,7 @@ Formats the Golfer constructer with the Table header and Score Array list
 
 /**
 *This public method gets the Score object in the scores array based on a passed in Date.
-@param checker is the value we pass in to locate within the array.
+*@param checker is the value we pass in to locate within the array.
 */
 
    public Score getScore(String checker)
@@ -221,8 +221,30 @@ Formats the Golfer constructer with the Table header and Score Array list
          return scores[i];
       }
    }
-
-
+/**
+*This public method gets the Score object with the lowest score.  Null if no scores entered.  
+*/
+   public Score lowestScore()
+   {
+      int k = -1;
+      int smallSoFar = 201;
+         
+      for(int i = 0; i < scores.length; i++)
+      {
+         if(i == 0)
+         {
+            smallSoFar = scores[0].getScoreVal();
+            k = 0;
+         }
+         else if(scores[i].getScoreVal() < smallSoFar)
+         {
+            k = i;
+            smallSoFar = scores[i].getScoreVal();
+         }
+      }  
+      
+      return scores[k];
+   }
 
 
 

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class GolferTest 
 {
    public static void main (String[] args)
@@ -49,5 +51,8 @@ public class GolferTest
      System.out.println("***Test for getScore, using private findScore method***");
      System.out.println(hambag.getScore("06/06/06"));
      System.out.println("70 \t 06/06/06 \t Hell's Hole \t 66.6 \t 144");
+     System.out.println("***Test for lowestScore***");
+     System.out.println(hambag.lowestScore());
+     System.out.println("Expected: 65 \t 05/05/05 \t Jimmyozer's  \t 55.5 \t 145");
    }
 }
