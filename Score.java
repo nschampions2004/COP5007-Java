@@ -29,9 +29,9 @@ public class Score
       if(courseRating < 60 || courseRating > 80)
       {
          System.out.println("Please enter a valid Course Rating.");
-         courseRating = 9999;
+         courseRating = 9999.0;
       }
-      if(courseSlope < 55 || courseSlope > 155)
+      if(courseSlope <= 54 || courseSlope > 155)
       {
          System.out.println("Please enter a valid Course Slope.");
          courseSlope = 9999;

@@ -8,6 +8,7 @@ File Name: Golfer.java
 */
 import java.util.Arrays;
 
+
 public class Golfer {
 /**
    The golfer in question.
@@ -245,7 +246,30 @@ Formats the Golfer constructer with the Table header and Score Array list
       
       return scores[k];
    }
-
+/**
+*This public method returns true or false based on whether or not a date is found and the entry deleted
+*/
+   public boolean deleteScore(String dateCheck)
+   {
+      Score[] temp = new Score[scores.length - 1];
+      if(findScore(dateCheck) == -1)
+      {
+         return false;
+      }
+      else
+      {
+      for(int i = 0; i < findScore(dateCheck); i++)
+      {
+            temp[i] = scores[i];
+      }
+      for(i = findScore(dateCheck) + 1; i < scores.length; i++)
+      {
+         temp[i] = scores[i];
+      }
+      scores = temp;
+      return true;
+      }
+   }
 
 
 }   
