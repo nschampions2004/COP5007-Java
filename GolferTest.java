@@ -45,6 +45,9 @@ public class GolferTest
      balla2.setCourseRating(76);
      balla2.setCourseSlope(122);
      System.out.println(balla2.toString());
-     System.out.println("Expected: 55 \t 06/06/06 \t ByEEEEE \t 76 \t 122");
+     System.out.println("Expected: 55 \t 06/06/06 \t ByEEEEE \t 76.0 \t 122");
+     System.out.println("***Test for getScore, using private findScore method***");
+     System.out.println(hambag.getScore("06/06/06"));
+     System.out.println("70 \t 06/06/06 \t Hell's Hole \t 66.6 \t 144");
    }
 }

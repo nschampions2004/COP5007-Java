@@ -48,7 +48,7 @@ public class Score
       return courseName;
     }
     
-    public int getScore()
+    public int getScoreVal()
     {
       return score;
     }
@@ -95,7 +95,7 @@ public class Score
      
     public String toString() 
     {
-      return getScore() + " \t " + getDate() + " \t " + getCourseName() + 
+      return getScoreVal() + " \t " + getDate() + " \t " + getCourseName() + 
       " \t " + getCourseRating() + " \t " + getCourseSlope() + " \n ";
     }
  

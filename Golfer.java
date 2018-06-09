@@ -176,6 +176,54 @@ Formats the Golfer constructer with the Table header and Score Array list
       copy[z] = temp;
       this.scores = copy;
     }
- 
+
+/**
+*This private method finds the entry in the array with the date that is passed into it.
+*@param dateToFind is the value we pass into locate within the array.
+*/
+   private int findScore(String dateToFind)
+   {
+   int k = -1;
+   int NOTFOUND = -1;
+   for(int i = 0; i < scores.length; i++)
+   {
+      if(scores[i].getDate() == dateToFind)
+      {
+         k = i;
+         break;
+      }
+   }
+   if(k != -1)
+   {
+      return k;
+   }
+   else
+   {
+      return NOTFOUND;
+   }
+   }      
+
+/**
+*This public method gets the Score object in the scores array based on a passed in Date.
+@param checker is the value we pass in to locate within the array.
+*/
+
+   public Score getScore(String checker)
+   {
+      int i = -1;
+      if(findScore(checker) == -1)
+      {
+         return null;
+      }
+      else
+      {
+         i = findScore(checker);
+         return scores[i];
+      }
+   }
+
+
+
+
 
 }   
