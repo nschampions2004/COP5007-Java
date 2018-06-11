@@ -24,7 +24,7 @@ public class Golfer {
 */
    private int idNum;
 /**
-   Storage of the golfer's scores.
+   Storage of the golfer's scores as an Array.
 */
    private Score[] scores = new Score[100];
 /**
@@ -198,24 +198,24 @@ Formats the Golfer constructer with the Table header and Score Array list
 */
    private int findScore(String dateToFind)
    {
-   int k = -1;
-   int NOTFOUND = -1;
-   for(int i = 0; i < scores.length; i++)
-   {
-      if(scores[i].getDate() == dateToFind)
+      int k = -1;
+      int NOTFOUND = -1;
+      for(int i = 0; i < scores.length; i++)
       {
-         k = i;
-         break;
+         if(scores[i].getDate().equals(dateToFind))
+         {
+            k = i;
+            break;
+         }
       }
-   }
-   if(k != -1)
-   {
-      return k;
-   }
-   else
-   {
-      return NOTFOUND;
-   }
+      if(k != -1)
+      {
+         return k;
+      }
+      else
+      {
+         return NOTFOUND;
+      }
    }      
 
 /**
@@ -242,33 +242,33 @@ Formats the Golfer constructer with the Table header and Score Array list
 *This public method gets the Score object with the lowest score.  Null if no scores entered.  
 @return the Score object matching the lowest score in the scores array, null if k equals -1
 */
+  
    public Score lowestScore()
    {
-      int k = -1;
+      Score lowest = new Score();
       int smallSoFar = 201;
-         
-      for(int i = 0; i < scores.length; i++)
-      {
-         if(i == 0)
-         {
-            smallSoFar = scores[0].getScoreVal();
-            k = 0;
-         }
-         else if(scores[i].getScoreVal() < smallSoFar)
-         {
-            k = i;
-            smallSoFar = scores[i].getScoreVal();
-         }
-      }  
-      if(k == -1)
+      if(scores[0] == null)
       {
          return null;
       }
       else
       {
-      return scores[k];
-      }
-   }
+         for(int i = 0; i < scores.length; i++)
+         {
+            lowest = scores[0];
+            if(scores[i] == null)
+            {
+               break;
+            }
+            if(scores[i].getScore() < lowest.getScore())
+            {
+               lowest = scores[i];
+            }
+               
+          }
+          return lowest;
+      }  
+    }
 /**
 *This public method returns true or false based on whether or not a date is found and the entry deleted
 @return true when a date is found in the scores array and deleted
@@ -283,14 +283,14 @@ Formats the Golfer constructer with the Table header and Score Array list
       }
       else
       {
-      for(int i = 0; i < findScore(dateCheck); i++)
-      {
-            temp[i] = scores[i];
-      }
-      for(i = findScore(dateCheck) + 1; i < scores.length; i++)
-      {
-         temp[i] = scores[i];
-      }
+         for(int i = 0; i < findScore(dateCheck); i++)
+         {
+               temp[i] = scores[i];
+         }
+         for(i = findScore(dateCheck) + 1; i < scores.length; i++)
+         {
+            temp[i - 1] = scores[i];
+         }
       scores = temp;
       return true;
       }

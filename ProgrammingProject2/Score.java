@@ -90,7 +90,7 @@ Constructs a parameterized Score Object.
    *Accessor for Score object's Score
    @return the score of the Score object
 */    
-    public int getScoreVal()
+    public int getScore()
     {
       return score;
     }
@@ -158,7 +158,7 @@ Constructs a parameterized Score Object.
 */
     public String toString() 
     {
-      return getScoreVal() + " \t " + getDate() + " \t " + getCourseName() + 
+      return getScore() + " \t " + getDate() + " \t " + getCourseName() + 
       " \t " + getCourseRating() + " \t " + getCourseSlope() + " \n ";
     }
 }
