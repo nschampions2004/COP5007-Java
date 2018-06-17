@@ -3,8 +3,8 @@ Score program that outputs and creates a Score Object for Bowlers
 @author Kyle Ligon
 @version 1.0
 
-COP 5007 Programming Project #: 2
-File Name: Score.java
+COP 5007 Programming Project #: 3
+File Name: BowlerScore.java
 */
 
 public class BowlerScore
@@ -36,10 +36,28 @@ public class BowlerScore
    @param score the score the bowler made during the event
    @param date the date the bowler bolwed the score
 */
-   public void BowlerScore (String laneName, int score, String date)
+   public BowlerScore (String laneName, int score, String date)
    {
+      final int SCORE_LOW = 0;
+      final int SCORE_HIGH = 300;    
       this.laneName = laneName; 
       /**fixme: add exception for catching scores outside 0 and 300 */
+      try 
+      {
+         if ( score < SCORE_LOW) 
+         {
+            throw new Exception("Too low of a Score.");
+         }
+         if (score > SCORE_HIGH)
+         {
+            throw new Exception("Too high of a Score.");
+         }
+       }
+       catch (Exception excpt)
+       {
+         System.out.println(excpt.getMessage());
+         System.out.println("Enter a valid score between 0 and 300");
+       }
       this.score = score;
       this.date = date;
    }
