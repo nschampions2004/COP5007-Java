@@ -21,12 +21,12 @@ public class PlayerTester
       System.out.println("***Tests High Score Values***");
       BowlerScore veggie = new BowlerScore("Midnight Lanes", 314, "06/06/06");
       System.out.println(veggie.toString());
-      System.out.println("Expected: Exception too high thrown");
+      System.out.println("Expected: FieldOutOfBounds Exception Thrown, 9999 input");
       
       System.out.println("***Tests Low Score Values***");
       BowlerScore jeggie = new BowlerScore("Midnight Lanes", -3, "06/06/06");
       System.out.println(jeggie.toString());
-      System.out.println("Expected: Exception too low thrown");
+      System.out.println("Expected: FieldOutOfBounds Exception Thrown, 9999 input");
    }
 }
 

@@ -22,6 +22,12 @@ public class BowlerScore
 */
    private String date;
 /**
+   This states the low and high scores of bowling game.  Used for validation of scores for 
+   paramaterized contstructor and mutator methods.
+*/   
+   private static final int SCORE_LOW = 0;
+   private static final int SCORE_HIGH = 300;
+/**
    Score method that defaults
 */
    public BowlerScore ()
@@ -37,28 +43,27 @@ public class BowlerScore
    @param date the date the bowler bolwed the score
 */
    public BowlerScore (String laneName, int score, String date)
+                           throws FieldOutOfBounds
    {
-      final int SCORE_LOW = 0;
-      final int SCORE_HIGH = 300;    
+          
       this.laneName = laneName; 
       /**fixme: add exception for catching scores outside 0 and 300 */
       try 
       {
-         if ( score < SCORE_LOW) 
+         if ( score < SCORE_LOW || score > SCORE_HIGH) 
          {
-            throw new Exception("Too low of a Score.");
-         }
-         if (score > SCORE_HIGH)
-         {
-            throw new Exception("Too high of a Score.");
-         }
+            throw new FieldOutOfBounds
+                        ("Score entered not between " + SCORE_LOW + " and "
+                        + SCORE_HIGH);
+            
+          }      
        }
-       catch (Exception excpt)
+       catch (Exception FieldOutOfBounds)
        {
-         System.out.println(excpt.getMessage());
-         System.out.println("Enter a valid score between 0 and 300");
+         score = 9999;
+         System.out.println(FieldOutOfBounds.getMessage()); 
        }
-      this.score = score;
+      this.score = score; 
       this.date = date;
    }
 /**
