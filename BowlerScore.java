@@ -22,8 +22,8 @@ public class BowlerScore
 */
    private String date;
 /**
-   This states the low and high scores of bowling game.  Used for validation of scores for 
-   paramaterized contstructor and mutator methods.
+   This states the low and high scores of bowling game.  Used for validation of 
+   scores for paramaterized contstructor and mutator methods.
 */   
    private static final int SCORE_LOW = 0;
    private static final int SCORE_HIGH = 300;
