@@ -109,6 +109,7 @@ public class Course
    }
 /**
    This mutator sets the courseName for a Course object
+   @param newCourseName new Course Name to replace regular value
 */
    public void setCourseName(String newCourseName)
    {
@@ -160,12 +161,15 @@ public class Course
        }
       this.courseSlope = newCourseSlope;
    }
-
-
+/**
+   This returns a nicely formatted string of the Course Class
+*/
+   public String toString()
+   {
+      String words = getCourseName() + " \t " + getCourseRating() + " \t " + getCourseSlope();
+      return words;
+   }
    
-
-
-
-
+   
 }
 

@@ -47,7 +47,6 @@ public class BowlerScore
    {
           
       this.laneName = laneName; 
-      /**fixme: add exception for catching scores outside 0 and 300 */
       try 
       {
          if ( score < SCORE_LOW || score > SCORE_HIGH) 
@@ -90,6 +89,7 @@ public class BowlerScore
    }
 /**
    This method sets the lane name for Bowler score obj
+   @param laneName new lane name to replace previous lane name
 */
    public void setLaneName(String laneName)
    {
@@ -98,13 +98,32 @@ public class BowlerScore
    
 /**
    This method sets the score for the Bowler score obj
+   @param score new score to replace previous score
+   @throws FieldOutOfBounds Exception for scores out of bounds
 */
    public void setScore(int score)
+                throws FieldOutOfBounds
    {
+      try 
+      {
+         if ( score < SCORE_LOW || score > SCORE_HIGH) 
+         {
+            throw new FieldOutOfBounds
+                        ("Score entered not between " + SCORE_LOW + " and "
+                        + SCORE_HIGH);
+            
+          }      
+       }
+       catch (Exception FieldOutOfBounds)
+       {
+         score = 9999;
+         System.out.println(FieldOutOfBounds.getMessage()); 
+       }
       this.score = score;
    }
 /**
    This method sets the date for the Bowler Score obj
+   @param date new date to replace previous date
 */
    public void setDate(String date)
    {
