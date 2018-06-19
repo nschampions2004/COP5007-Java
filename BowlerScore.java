@@ -46,24 +46,9 @@ public class BowlerScore
                            throws FieldOutOfBounds
    {
           
-      this.laneName = laneName; 
-      try 
-      {
-         if ( score < SCORE_LOW || score > SCORE_HIGH) 
-         {
-            throw new FieldOutOfBounds
-                        ("Score entered not between " + SCORE_LOW + " and "
-                        + SCORE_HIGH);
-            
-          }      
-       }
-       catch (Exception FieldOutOfBounds)
-       {
-         score = 9999;
-         System.out.println(FieldOutOfBounds.getMessage()); 
-       }
-      this.score = score; 
-      this.date = date;
+      setLaneName(laneName); 
+      setScore(score); 
+      setDate(date);
    }
 /**
    This method gets the lane name of the Bowler Score obj

@@ -16,7 +16,7 @@ public class PlayerTester
       System.out.println("***Tests Default Bowler Score***");
       BowlerScore jimmy = new BowlerScore();
       System.out.println(jimmy.toString());
-      System.out.println("Expected: ____ 9999 99/99/99");
+      System.out.println("Expected: 9999 99/99/99 ____");
       
       
       System.out.println("***Tests Parameterized Bowler Score and Accessors (accessors utilized in toString()***");
@@ -31,18 +31,6 @@ public class PlayerTester
       
       System.out.println("***Tests Low Score Values***");
       BowlerScore jeggie = new BowlerScore("Midnight Lanes", -3, "06/06/06");
-      System.out.println(jeggie.toString());
-      System.out.println("Expected: FieldOutOfBounds Exception Thrown, 9999 input");
-      
-      System.out.println("***Tests mutator for setLaneName, setScore, setDate***");
-      jeggie.setLaneName("Red Herring");
-      jeggie.setScore(18);
-      jeggie.setDate("06/18/18");
-      System.out.println(jeggie.toString());
-      System.out.println("Expected: 18 06/18/18 Red Herring ");
-      
-      System.out.println("***Tests mutator for setScore***");
-      jeggie.setScore(-5);
       System.out.println(jeggie.toString());
       System.out.println("Expected: FieldOutOfBounds Exception Thrown, 9999 input");
       
