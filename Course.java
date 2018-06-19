@@ -28,8 +28,8 @@ public class Course
 /**
    The values representing the bounds of Course Slope
 */
-   private final int  HIGH_COURSESLOPE = 55;
-   private final int  LOW_COURSESLOPE = 155;
+   private final int  LOW_COURSESLOPE = 55;
+   private final int  HIGH_COURSESLOPE = 155;
 
 /**
    This is the default constructor for the Course Class
@@ -51,39 +51,9 @@ public class Course
    public Course(String courseName, double courseRating, int courseSlope)
                   throws FieldOutOfBounds
    {
-      try
-      {
-         if ( courseRating < LOW_COURSERATING || courseRating > HIGH_COURSERATING)
-         {
-            throw new FieldOutOfBounds
-                        ("Course Rating entered not between " + LOW_COURSERATING +
-                        " and " + HIGH_COURSERATING);
-         }
-      }
-      catch (Exception FieldOutOfBounds)
-      {
-         courseRating = 9999.99;
-         System.out.println(FieldOutOfBounds.getMessage());
-      }
-      
-      try
-      {
-         if ( courseSlope < LOW_COURSESLOPE || courseSlope > HIGH_COURSESLOPE)
-         {
-            throw new FieldOutOfBounds
-                        ("Course Slope entered not between " + LOW_COURSESLOPE + 
-                        " and " + HIGH_COURSESLOPE);
-         }
-       }
-       catch (Exception FieldOutOfBounds)
-       {
-            courseSlope = 9999;
-            System.out.println(FieldOutOfBounds.getMessage());
-       }
-      
-      this.courseName = courseName;
-      this.courseRating = courseRating;
-      this.courseSlope = courseSlope;
+      setCourseName(courseName);
+      setCourseRating(courseRating);
+      setCourseSlope(courseSlope);
    }
    
 /** 
@@ -124,7 +94,7 @@ public class Course
    {
       try
       {
-         if ( courseRating < LOW_COURSERATING || courseRating > HIGH_COURSERATING)
+         if ( newCourseRating < LOW_COURSERATING || newCourseRating > HIGH_COURSERATING)
          {
             throw new FieldOutOfBounds
                         ("Course Rating entered not between " + LOW_COURSERATING +
@@ -147,7 +117,7 @@ public class Course
    {
       try
       {
-         if ( courseSlope < LOW_COURSESLOPE || courseSlope > HIGH_COURSESLOPE)
+         if ( newCourseSlope < LOW_COURSESLOPE || newCourseSlope > HIGH_COURSESLOPE)
          {
             throw new FieldOutOfBounds
                         ("Course Slope entered not between " + LOW_COURSESLOPE + 

@@ -120,7 +120,7 @@ public class BowlerScore
 */
    public String toString()
    {
-      String words = this.score + " \t " + this.date + " \t " + this.laneName;
+      String words = getScore() + " \t " + getDate() + " \t " + getLaneName();
       return words;
    }
 }
