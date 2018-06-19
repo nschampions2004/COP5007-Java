@@ -45,6 +45,7 @@ public class Golfer extends Player {
       name = "__";
       homeCourse = "__";
       idNum = 9999;
+      scores = null;
       // array list of score objects
       
      }
@@ -56,13 +57,11 @@ public class Golfer extends Player {
 */    
    public Golfer(String name, String homeCourse)
    {
-      int currentSize = 0;
-      idNum = 0;
       nextIdNum++;
       this.idNum = nextIdNum;
       this.name = name;
       this.homeCourse = homeCourse;
-      
+      this.scores = scores;
    }   
 /**
 Formats the Golfer constructer with 
@@ -70,11 +69,19 @@ the Table header and Score Array list
 @return a nicely formatted list 
 describing the golfer and their recorded scores.  
 */
-/**   public String toString() 
+   public String toString() 
    {
+      //sets the initial line of words to the header line in for the Golfer class
+      String words = getName() + "  " + getHomeCourse() + " \n";
+      //loop through ArrayList
+      for(int i = 0; i < scores.size(); i++)
+      {
+         //take that header block and add the toString
+         words = words + scores.get(i).toString();
+      }
       return words;
    }
-*/
+
 
 /**
    *Accessor for Golfer Name
@@ -151,131 +158,126 @@ describing the golfer and their recorded scores.
    @param addCourseSlope this adds the course slope to the Score class which will be used to add to the Golfer's info
 */
 
+
    public void addScore(String addCourseName, int addScore, String addDate, double addCourseRating, int addCourseSlope)
    {
-      int z = 0;
-      Score temp = new Score(addCourseName, addScore, addDate, addCourseRating, addCourseSlope);
-      for(int i = 0; i < scores.length; i++)
+      //loop through the index of scores ArrayList
+      for(int i = 0; i < scores.size(); i++)
       {
-         if(scores[i] != null)
+         //check to see if the value at the ith index is empty, then add the score object to the arraylist
+         if(scores.get(i) == null)
          {
-             z++;
+             scores.add(new Score(addCourseName, addScore, addDate, addCourseRating, addCourseSlope));
          }
+         
       }
-      Score[] copy = new Score[z + 1];
-      for(i = 0; i < z; i++)
-      {
-         copy[i] = scores[i];
-      }
-      copy[z] = temp;
-      this.scores = copy;
     }
 
-/**
-*This private method finds the entry in the array with the date that is passed into it.
-@param dateToFind is the value we pass into locate within the array.
-@return k the index of an array when a date is found
-@return NOTFOUND = -1 when a date in an array of Score Object is not found
-*/
-   private int findScore(String dateToFind)
-   {
-      int k = -1;
-      int NOTFOUND = -1;
-      for(int i = 0; i < scores.length; i++)
-      {
-         if(scores[i].getDate().equals(dateToFind))
-         {
-            k = i;
-            break;
-         }
-      }
-      if(k != -1)
-      {
-         return k;
-      }
-      else
-      {
-         return NOTFOUND;
-      }
-   }      
-
-/**
-*This public method gets the Score object in the scores array based on a passed in Date.
-@param checker is the value we pass in to locate within the array.
-@return null if the the findScore method returns -1
-@return the Score object matching the index found by the findScore method
-*/
-
-   public Score getScore(String checker)
-   {
-      int i = -1;
-      if(findScore(checker) == -1)
-      {
-         return null;
-      }
-      else
-      {
-         i = findScore(checker);
-         return scores[i];
-      }
-   }
-/**
-*This public method gets the Score object with the lowest score.  Null if no scores entered.  
-@return the Score object matching the lowest score in the scores array, null if k equals -1
-*/
-  
-   public Score lowestScore()
-   {
-      Score lowest = new Score();
-      int smallSoFar = 201;
-      if(scores[0] == null)
-      {
-         return null;
-      }
-      else
-      {
-         for(int i = 0; i < scores.length; i++)
-         {
-            lowest = scores[0];
-            if(scores[i] == null)
-            {
-               break;
-            }
-            if(scores[i].getScore() < lowest.getScore())
-            {
-               lowest = scores[i];
-            }
-               
-          }
-          return lowest;
-      }  
-    }
-/**
-*This public method returns true or false based on whether or not a date is found and the entry deleted
-@return true when a date is found in the scores array and deleted
-@return false when a date is found in the scores array is not found
-*/
-   public boolean deleteScore(String dateCheck)
-   {
-      Score[] temp = new Score[scores.length - 1];
-      if(findScore(dateCheck) == -1)
-      {
-         return false;
-      }
-      else
-      {
-         for(int i = 0; i < findScore(dateCheck); i++)
-         {
-               temp[i] = scores[i];
-         }
-         for(i = findScore(dateCheck) + 1; i < scores.length; i++)
-         {
-            temp[i - 1] = scores[i];
-         }
-      scores = temp;
-      return true;
-      }
-   }
+// /**
+// *This private method finds the entry in the array with the date that is passed into it.
+// @param dateToFind is the value we pass into locate within the array.
+// @return k the index of an array when a date is found
+// @return NOTFOUND = -1 when a date in an array of Score Object is not found
+// */
+//    private int findScore(String dateToFind)
+//    {
+//       int k = -1;
+//       int NOTFOUND = -1;
+//       for(int i = 0; i < scores.length; i++)
+//       {
+//          if(scores[i].getDate().equals(dateToFind))
+//          {
+//             k = i;
+//             break;
+//          }
+//       }
+//       if(k != -1)
+//       {
+//          return k;
+//       }
+//       else
+//       {
+//          return NOTFOUND;
+//       }
+//    }      
+// 
+// /**
+// *This public method gets the Score object in the scores array based on a passed in Date.
+// @param checker is the value we pass in to locate within the array.
+// @return null if the the findScore method returns -1
+// @return the Score object matching the index found by the findScore method
+// */
+// 
+//    public Score getScore(String checker)
+//    {
+//       int i = -1;
+//       if(findScore(checker) == -1)
+//       {
+//          return null;
+//       }
+//       else
+//       {
+//          i = findScore(checker);
+//          return scores[i];
+//       }
+//    }
+// /**
+// *This public method gets the Score object with the lowest score.  Null if no scores entered.  
+// @return the Score object matching the lowest score in the scores array, null if k equals -1
+// */
+//   
+//    public Score lowestScore()
+//    {
+//       Score lowest = new Score();
+//       int smallSoFar = 201;
+//       if(scores[0] == null)
+//       {
+//          return null;
+//       }
+//       else
+//       {
+//          for(int i = 0; i < scores.length; i++)
+//          {
+//             lowest = scores[0];
+//             if(scores[i] == null)
+//             {
+//                break;
+//             }
+//             if(scores[i].getScore() < lowest.getScore())
+//             {
+//                lowest = scores[i];
+//             }
+//                
+//           }
+//           return lowest;
+//       }  
+//     }
+// /**
+// *This public method returns true or false based on whether or not a date is found and the entry deleted
+// @return true when a date is found in the scores array and deleted
+// @return false when a date is found in the scores array is not found
+// */
+//    public boolean deleteScore(String dateCheck)
+//    {
+//       Score[] temp = new Score[scores.length - 1];
+//       if(findScore(dateCheck) == -1)
+//       {
+//          return false;
+//       }
+//       else
+//       {
+//          for(int i = 0; i < findScore(dateCheck); i++)
+//          {
+//                temp[i] = scores[i];
+//          }
+//          for(i = findScore(dateCheck) + 1; i < scores.length; i++)
+//          {
+//             temp[i - 1] = scores[i];
+//          }
+//       scores = temp;
+//       return true;
+//       }
+//    }
 
 
 }   

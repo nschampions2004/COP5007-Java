@@ -46,6 +46,10 @@ public class PlayerTester
       System.out.println(jeggie.toString());
       System.out.println("Expected: FieldOutOfBounds Exception Thrown, 9999 input");
       
+      System.out.println("***Tests for Golfer and addScore methods with ArrayList***");
+      Golfer lemon = new Golfer("Betty Draper", "CT");
+      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      System.out.println(lemon.toString());
       
       
       
