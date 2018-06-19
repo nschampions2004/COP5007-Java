@@ -1,15 +1,16 @@
 /**
-Golfer program that outputs a golfer's name, home course, id number, and an Array of Score Objects.  
+Golfer program that outputs a golfer's name, home course, 
+id number, and an Array of Score Objects.  
 @author Kyle Ligon
 @version 1.0
 
-COP5007 Programming Project #: 2
+COP5007 Programming Project #: 3
 File Name: Golfer.java
 */
-import java.util.Arrays;
+import java.util.ArrayList;
 
 
-public class Golfer {
+public class Golfer extends Player {
 /**
    The golfer in question.
 */
@@ -24,9 +25,9 @@ public class Golfer {
 */
    private int idNum;
 /**
-   Storage of the golfer's scores as an Array.
+   Storage of the golfer's scores as an Array List.
 */
-   private Score[] scores = new Score[100];
+   private ArrayList<Score> scores = new ArrayList<Score>( );
 /**
    Counter of Golfer's IdNum
 */
@@ -44,17 +45,14 @@ public class Golfer {
       name = "__";
       homeCourse = "__";
       idNum = 9999;
-      this.name = name;
-      this.homeCourse = homeCourse;
-      this.idNum = idNum;
-      final int LENGTH = 20;
-      Score[] values = new Score[LENGTH];
-      values = this.scores;
+      // array list of score objects
+      
      }
 /**
 *Constructs a parameterized Golfer Object.
 *@param name the name of the golpher
-*@param homeCourse the home course corresponding to the golfer in question
+*@param homeCourse the home course corresponding to 
+   the golfer in question
 */    
    public Golfer(String name, String homeCourse)
    {
@@ -64,36 +62,19 @@ public class Golfer {
       this.idNum = nextIdNum;
       this.name = name;
       this.homeCourse = homeCourse;
-      final int LENGTH = 20;
-      Score[] values = new Score[LENGTH];
-      values = this.scores;
+      
    }   
 /**
-Formats the Golfer constructer with the Table header and Score Array list
-@return a nicely formatted list describing the golfer and their recorded scores.  
+Formats the Golfer constructer with 
+the Table header and Score Array list
+@return a nicely formatted list 
+describing the golfer and their recorded scores.  
 */
-   public String toString() 
+/**   public String toString() 
    {
-      String words = "";
-      boolean empty = true;
-      for (int i = 0; i < scores.length; i++)
-      {
-         if(scores[i] == null)
-         {
-            empty = false;
-            words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + " \n " + "Score" +
-         " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + " \n ";
-            break;
-         }
-         else 
-         {
-         words = this.name + " ID Number: " + this.idNum + " Home Course: " + this.homeCourse + " \n " + "Score" +
-         " \t " + "Date" + " \t " + "Course" + " \t " + "Course Rating" + " \t " + "Course Slope" + " \n " + 
-         Arrays.asList(scores).toString().replaceFirst("]", "").replace(", ", "").replace("[","");
-         }
-       }  
-    return words;
+      return words;
    }
+*/
 
 /**
    *Accessor for Golfer Name
@@ -154,11 +135,11 @@ Formats the Golfer constructer with the Table header and Score Array list
    Mutator for idNum
    @return returns the new id number of the golfer
 */ 
-   public int setIdNum()
+   public void setIdNum()
    {
       
       idNum = nextIdNum;
-      return idNum;
+      nextIdNum++;
    }
 
 /**   
