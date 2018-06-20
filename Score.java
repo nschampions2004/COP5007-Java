@@ -159,6 +159,6 @@ Constructs a parameterized Score Object.
     public String toString() 
     {
       return getScore() + " \t " + getDate() + " \t " + getCourseName() + 
-      " \t " + getCourseRating() + " \t " + getCourseSlope() + " \n ";
+      " \t " + getCourseRating() + " \t " + getCourseSlope() + " \n";
     }
 }

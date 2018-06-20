@@ -59,10 +59,24 @@ public class PlayerTester
       System.out.println("***Tests for Golfer and addScore methods with ArrayList***");
       Golfer lemon = new Golfer("Betty Draper", "CT");
       lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
       System.out.println(lemon.toString());
       
+      Golfer mich = new Golfer();
+      System.out.println(mich.toString());
       
+      System.out.println(lemon.getScore("06/06/06"));
+      System.out.println("Expected: 65 06/06/06 Augusta 65.0 65");
       
+      System.out.println(lemon.lowestScore());
+      System.out.println("Expected: 65 06/06/06 Augusta 65.0 65");
+      
+      System.out.println(mich.lowestScore());
+      System.out.println("Expected: Error?");
+      
+      lemon.deleteScore("06/07/06");
+      System.out.println(lemon.toString());
+         
    }
 }
 
