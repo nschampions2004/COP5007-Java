@@ -8,9 +8,11 @@ COP5007 Programming Project #: 3
 File Name: Golfer.java
 */
 import java.util.ArrayList;
+import java.math.BigDecimal;
+import java.util.Collections;
 
-
-public class Golfer extends Player {
+public class Golfer extends Player implements Comparable<calculateHandicap>
+{
 /**
    The golfer in question.
 */
@@ -86,8 +88,6 @@ describing the golfer and their recorded scores.
       }
       
    }
-
-
 /**
    *Accessor for Golfer Name
    @return the name of the golfer
@@ -270,6 +270,46 @@ describing the golfer and their recorded scores.
          return true;
       }
    }
+   
+/**
+*This public method returns the Golfer's handicap based on the 10 most recent scores entered in for the 
+golfer.
+@returns handicap after calculating the differentials, average of diffs, 96% of that number, and rounded to 2 spots. 
+*/
+   public double calculateHandicap()
+   {
+      
+      double diffSum = 0.0;
+      double HANDI_CONST = 113.0;
+      /*if(scores.isEmpty() || scores.size() < 10)
+      {
+         return null;
+      }
+      else
+      {
+      }
+      */
+      ArrayList<Double> diffs = new ArrayList<Double>( ); 
+      for(int i = scores.size() - 1; i > scores.size() - 11; i--)
+      {
+         double sc = scores.get(i).getScore();
+         double cr = scores.get(i).getCourseRating();
+         double cs = scores.get(i).getCourseSlope();
+         double sub = (sc - cr) * HANDI_CONST;
+         sub = sub / cs; 
+         diffs.add(sub);
+      }
+      for(int k = 0; k < diffs.size(); k++)
+      {
+         diffSum = diffSum + diffs.get(k);
+      }
+      return diffSum;
+    }
+    
+  
+    
+        
+
 
 
 }   
