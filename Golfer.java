@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.math.BigDecimal;
 import java.util.Collections;
 
-public class Golfer extends Player implements Comparable<calculateHandicap>
+public class Golfer extends Player
 {
 /**
    The golfer in question.
@@ -275,41 +275,53 @@ describing the golfer and their recorded scores.
 *This public method returns the Golfer's handicap based on the 10 most recent scores entered in for the 
 golfer.
 @returns handicap after calculating the differentials, average of diffs, 96% of that number, and rounded to 2 spots. 
+@exception if scores array is less than 10 items
 */
-   public double calculateHandicap()
+   public double calculateHandicap() 
+                  throws FieldOutOfBounds
    {
       
+      double diffAvg;
       double diffSum = 0.0;
-      double HANDI_CONST = 113.0;
-      /*if(scores.isEmpty() || scores.size() < 10)
+      final double HANDI_CONST = 113.0;
+      final double HANDI_MULT = 0.96;
+      try 
       {
-         return null;
-      }
-      else
-      {
-      }
-      */
-      ArrayList<Double> diffs = new ArrayList<Double>( ); 
-      for(int i = scores.size() - 1; i > scores.size() - 11; i--)
-      {
-         double sc = scores.get(i).getScore();
-         double cr = scores.get(i).getCourseRating();
-         double cs = scores.get(i).getCourseSlope();
-         double sub = (sc - cr) * HANDI_CONST;
-         sub = sub / cs; 
-         diffs.add(sub);
-      }
-      for(int k = 0; k < diffs.size(); k++)
-      {
-         diffSum = diffSum + diffs.get(k);
-      }
-      return diffSum;
-    }
-    
-  
-    
-        
-
-
-
+         if(scores.isEmpty() || scores.size() < 10)
+         {
+            throw new FieldOutOfBounds   
+                        ("Not enough scores entered to calculate handicap");
+         }
+         else
+         {
+            ArrayList<Double> diffs = new ArrayList<Double>( ); 
+            for(int i = scores.size() - 1; i > scores.size() - 11; i--)
+            {
+               //calculating differentials
+               double sub = (scores.get(i).getScore() - scores.get(i).getCourseRating());
+               sub = sub * HANDI_CONST / scores.get(i).getCourseSlope(); 
+               diffs.add(sub);
+            }
+            //sort the differentials from lowest to highest
+            Collections.sort(diffs);
+            //pull out the first 5 and sum them
+            for(int k = 0; k < 5; k++)
+            {
+               diffSum = diffSum + diffs.get(k);
+            }
+            //compute the avg 
+            diffAvg = diffSum / 5 ;
+            //multiply by 0.96
+            diffAvg = diffAvg * HANDI_MULT;
+         }
+       }
+       catch (Exception FieldOutOfBounds)
+       {
+         diffAvg = 9999.99;
+         System.out.println(FieldOutOfBounds.getMessage()); 
+       }            
+         
+       return diffAvg;
+       }
+     
 }   

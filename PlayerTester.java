@@ -85,20 +85,20 @@ public class PlayerTester
       System.out.println("Expected: 65 06/06/06 Augusta 65.0 65");
       
       System.out.println("***checking diffSum***");
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
       System.out.println(lemon.calculateHandicap());
-      System.out.println("Expected: ~ 10.00");
+      System.out.println("Expected: ~ 1.6688");
                
    }
 }
