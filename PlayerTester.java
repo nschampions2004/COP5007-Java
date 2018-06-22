@@ -39,7 +39,7 @@ public class PlayerTester
       System.out.println(gumball1.toString());
       System.out.println("Expected: ___ 9999.99 9999");
             
-      System.out.println("***Tests Default Parameters for Course Class***");
+      System.out.println("***Tests Parameterized Constructor and toString() for Course Class(mutators and accessors tested implicitly)***");
       Course gumball = new Course("Arcane", 65.9, 100);
       System.out.println(gumball.toString());
       System.out.println("Expected: Arcane 65.9 100");

@@ -8,7 +8,7 @@ COP5007 Programming Project #: 3
 File Name: Golfer.java
 */
 import java.util.ArrayList;
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 import java.util.Collections;
 
 public class Golfer extends Player
