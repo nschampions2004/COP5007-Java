@@ -13,27 +13,17 @@ import java.util.Collections;
 
 public class Golfer extends Player
 {
-/**
-   The golfer in question.
-*/
-   private String name;
 
 /**
    The home course of the Golfer.
 */
    private String homeCourse;
-/**
-   The id of the golfer.
-*/
-   private int idNum;
+
 /**
    Storage of the golfer's scores as an Array List.
 */
    private ArrayList<Score> scores = new ArrayList<Score>( );
-/**
-   Counter of Golfer's IdNum
-*/
-   private static int nextIdNum = 999;
+
 /**
    Setter for error method
 */
@@ -44,22 +34,19 @@ public class Golfer extends Player
    Golfer method that defaults.
 */
    public Golfer() 
-   {
-      this("__", "__"); 
-      this.idNum = 9999;
+   {  
+      super( );
    }
 /**
 *Constructs a parameterized Golfer Object.
-*@param name the name of the golpher
+*@param name the name of the golfer
 *@param homeCourse the home course corresponding to 
    the golfer in question
 */    
    public Golfer(String name, String homeCourse)
    {
-      nextIdNum++;
-      this.idNum = nextIdNum;
-      this.name = name;
-      this.homeCourse = homeCourse;
+      super(name) ;
+      setHomeCourse(homeCourse);
       this.scores = scores;
    }   
 /**
@@ -70,7 +57,7 @@ describing the golfer and their recorded scores.
 */
    public String toString() 
    {
-      String words = getName() + "  " + getHomeCourse() + " \n";
+      String words = getName() + "  " + getHomeCourse() + " " + calculateHandicap() + " \n";
       if(scores.isEmpty())
       {
          //sets the initial line of words to the header line in for the Golfer class
@@ -89,44 +76,12 @@ describing the golfer and their recorded scores.
       
    }
 /**
-   *Accessor for Golfer Name
-   @return the name of the golfer
-*/
-   public String getName() 
-   {
-      return name;
-   }
-/**
    Accessor for homeCourse
    @return the name of the home course of the golfer
 */   
    public String getHomeCourse()
    {
       return homeCourse;
-   }
-        
-/** 
-   Accessor for idNum 
-   @return the id number of the golfer
-*/
-   public int getIdNum()
-   {
-      return idNum;
-   }
-/**
-   Mutator of name
-   @param newName sets the name of the golfer
-*/
-   public void setName(String newName)
-   {
-      if (newName == null)
-      { 
-         System.out.println("Error: must input a new name."); 
-      }
-      else 
-      {
-         name = newName;
-      }
    }
 /**
    Mutator of home course
@@ -142,16 +97,6 @@ describing the golfer and their recorded scores.
       {
          homeCourse = newHomeCourse;
       }
-   }
-/**
-   Mutator for idNum
-   @return returns the new id number of the golfer
-*/ 
-   public void setIdNum()
-   {
-      
-      idNum = nextIdNum;
-      nextIdNum++;
    }
 
 /**   
@@ -270,13 +215,13 @@ describing the golfer and their recorded scores.
          return true;
       }
    }
-   
 /**
 *This public method returns the Golfer's handicap based on the 10 most recent scores entered in for the 
 golfer.
 @returns handicap after calculating the differentials, average of diffs, 96% of that number, and rounded to 2 spots. 
 @exception if scores array is less than 10 items
 */
+   @Override
    public double calculateHandicap() 
                   throws FieldOutOfBounds
    {
@@ -298,8 +243,8 @@ golfer.
             for(int i = scores.size() - 1; i > scores.size() - 11; i--)
             {
                //calculating differentials
-               double sub = (scores.get(i).getScore() - scores.get(i).getCourseRating());
-               sub = sub * HANDI_CONST / scores.get(i).getCourseSlope(); 
+               double sub = (scores.get(i).getScore() - scores.get(i).getInherit().getCourseRating());
+               sub = sub * HANDI_CONST / scores.get(i).getInherit().getCourseSlope(); 
                diffs.add(sub);
             }
             //sort the differentials from lowest to highest

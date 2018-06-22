@@ -10,10 +10,6 @@ File Name: Score.java
 public class Score 
 {
 /**
-   The course name of the entered score in the Score class
-*/
-   private String courseName;
-/**
    The value of the entered score in the Score class
 */   
    private int score;
@@ -22,23 +18,22 @@ public class Score
 */   
    private String date;
 /**
-   The rating of the course of the entered score in the Score class
-*/   
-   private double courseRating;
-/**
-   The course slope of the course in the Score class
-*/   
-   private int courseSlope;
+   The Course object to be pulled in from Course
+*/
+   private Course inherit;
+
 /**
    Score method that defaults
 */   
    public Score () 
    {
-      courseName = "__";
+      
+      //FIXME:  get the old values out of the piece Course class
+      inherit = new Course(); 
       score = 9999;
       date = "99/99/99";
-      courseRating = 9999.99;
-      courseSlope = 9999;  
+      
+        
    }
 /**
 Constructs a parameterized Score Object.
@@ -50,42 +45,28 @@ Constructs a parameterized Score Object.
 */   
    public Score (String courseName, int score, String date, double courseRating, int courseSlope)
    {
-      if((score < 40) || (score > 200))
+      /*if((score < 40) || (score > 200))
       {
          System.out.println("Please enter a valid 18 Hole Score.");
          score = 9999;
-      }
-      if((courseRating < 60) || (courseRating > 80))
-      {
-         System.out.println("Please enter a valid Course Rating.");
-         courseRating = 9999.0;
-      }
-      if((courseSlope < 55) || (courseSlope > 155))
-      {
-         System.out.println("Please enter a valid Course Slope.");
-         courseSlope = 9999;
-      }
-      
-      if((date.length() < 7) || (date.charAt(2) != '/') || (date.charAt(5) != '/'))
-      {
-         System.out.println("Please input the date in the following format: mm/dd/yy");
-         date = "9999";
-      }
-      
-      this.courseName = courseName;
-      this.score = score;
-      this.date = date;
-      this.courseRating = courseRating;
-      this.courseSlope = courseSlope;
+      }*/
+            
+            
+      this.inherit = new Course(courseName, courseRating, courseSlope);
+      setScore(score);
+      setDate(date);
+      //this.courseRating = courseRating;
+      //this.courseSlope = courseSlope;
     }
 /**
    *Accessor for course name
    @return the name of the course name
-*/    
+    
     public String getCourseName()
     {
       return courseName;
     }
+*/
 /**
    *Accessor for Score object's Score
    @return the score of the Score object
@@ -103,28 +84,41 @@ Constructs a parameterized Score Object.
       return date;
     }
 /**
+   *Accessor for Course object within Scores
+   @return Course obj
+*/
+   public Course getInherit()
+   {
+      return inherit;
+   }    
+    
+ 
+/**
    *Accessor for Score Course Rating
    @return the course rating of the Score object
-*/    
+    
     public double getCourseRating()
     {
       return courseRating;
     }
+    */
 /**
    *Accessor for Score Course Slope
    @return the course slope of the score object
-*/    
+   
     public int getCourseSlope()
     {
       return courseSlope;
     }  
+    */
 /**
    *Mutator for Score Course Name
-*/      
+     
     public void setCourseName(String newCourseName)
     {
         courseName = newCourseName;
     }
+*/
 /**
    *Mutator for Score Object's score
 */    
@@ -139,26 +133,29 @@ Constructs a parameterized Score Object.
     {
          date = setDate;
     }
+
 /**
    *Mutator for Score course rating
-*/    
+   
     public void setCourseRating(double newCourseRating)
     {
         courseRating = newCourseRating;
     }
+*/ 
 /**
    *Mutator for Score Course Slope
-*/    
+  
     public void setCourseSlope(int newCourseSlope)
     {
          courseSlope = newCourseSlope;
     }
+*/ 
 /**
    *Method for outputting nicely formatted 
 */
     public String toString() 
     {
-      return getScore() + " \t " + getDate() + " \t " + getCourseName() + 
-      " \t " + getCourseRating() + " \t " + getCourseSlope() + " \n";
+      return getScore() + " \t " + getDate() + " \t "; //+ getCourseName() + 
+      //" \t " + getCourseRating() + " \t " + //getCourseSlope() + " \n";
     }
 }

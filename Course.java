@@ -15,7 +15,7 @@ public class Course
 /**
    The course rating entered for the course.
 */
-   private  double courseRating;
+   private double courseRating;
 /**
    The value entered for course's slope
 */
