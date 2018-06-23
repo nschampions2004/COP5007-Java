@@ -44,29 +44,15 @@ Constructs a parameterized Score Object.
 @param courseSlope the slope of the course in the Score object between 55 and 155
 */   
    public Score (String courseName, int score, String date, double courseRating, int courseSlope)
-   {
-      /*if((score < 40) || (score > 200))
-      {
-         System.out.println("Please enter a valid 18 Hole Score.");
-         score = 9999;
-      }*/
-            
-            
-      this.inherit = new Course(courseName, courseRating, courseSlope);
+   {      
+      Course inherit = new Course( );
+      inherit.setCourseName(courseName);
+      inherit.setCourseRating(courseRating);
+      inherit.setCourseSlope(courseSlope);
       setScore(score);
       setDate(date);
-      //this.courseRating = courseRating;
-      //this.courseSlope = courseSlope;
-    }
-/**
-   *Accessor for course name
-   @return the name of the course name
-    
-    public String getCourseName()
-    {
-      return courseName;
-    }
-*/
+   }
+
 /**
    *Accessor for Score object's Score
    @return the score of the Score object
@@ -91,34 +77,6 @@ Constructs a parameterized Score Object.
    {
       return inherit;
    }    
-    
- 
-/**
-   *Accessor for Score Course Rating
-   @return the course rating of the Score object
-    
-    public double getCourseRating()
-    {
-      return courseRating;
-    }
-    */
-/**
-   *Accessor for Score Course Slope
-   @return the course slope of the score object
-   
-    public int getCourseSlope()
-    {
-      return courseSlope;
-    }  
-    */
-/**
-   *Mutator for Score Course Name
-     
-    public void setCourseName(String newCourseName)
-    {
-        courseName = newCourseName;
-    }
-*/
 /**
    *Mutator for Score Object's score
 */    
@@ -133,29 +91,12 @@ Constructs a parameterized Score Object.
     {
          date = setDate;
     }
-
-/**
-   *Mutator for Score course rating
-   
-    public void setCourseRating(double newCourseRating)
-    {
-        courseRating = newCourseRating;
-    }
-*/ 
-/**
-   *Mutator for Score Course Slope
-  
-    public void setCourseSlope(int newCourseSlope)
-    {
-         courseSlope = newCourseSlope;
-    }
-*/ 
 /**
    *Method for outputting nicely formatted 
 */
     public String toString() 
     {
-      return getScore() + " \t " + getDate() + " \t "; //+ getCourseName() + 
-      //" \t " + getCourseRating() + " \t " + //getCourseSlope() + " \n";
+      return getScore() + " \t " + getDate() + " \t " + inherit.getCourseName() + 
+      " \t " + inherit.getCourseRating() + " \t " + inherit.getCourseSlope() + " \n";
     }
 }
