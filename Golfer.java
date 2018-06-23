@@ -8,7 +8,7 @@ COP5007 Programming Project #: 3
 File Name: Golfer.java
 */
 import java.util.ArrayList;
-//import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Collections;
 
 public class Golfer extends Player
@@ -48,6 +48,8 @@ public class Golfer extends Player
       super(name) ;
       setHomeCourse(homeCourse);
       this.scores = scores;
+      setIDNum();
+      
    }   
 /**
 Formats the Golfer constructer with 
@@ -57,7 +59,10 @@ describing the golfer and their recorded scores.
 */
    public String toString() 
    {
-      String words = getName() + "  " + getHomeCourse() + " " + calculateHandicap() + " \n";
+      DecimalFormat dF = new DecimalFormat("#.00");
+      String numberAsString = dF.format(calculateHandicap());
+      String words = getName() + "\t ID number: " + getIDNum() + "\t Home Course: " + getHomeCourse() + 
+      "\t Current Handicap " + numberAsString + " \n";
       if(scores.isEmpty())
       {
          //sets the initial line of words to the header line in for the Golfer class
@@ -68,7 +73,7 @@ describing the golfer and their recorded scores.
          //loop through ArrayList
          for(int i = 0; i < scores.size(); i++)
          {
-            //take that header block and add the toString
+            //take that header block and add the toStrings
             words = words + scores.get(i).toString();
          }
          return words;
@@ -243,8 +248,8 @@ golfer.
             for(int i = scores.size() - 1; i > scores.size() - 11; i--)
             {
                //calculating differentials
-               double sub = (scores.get(i).getScore() - scores.get(i).getInherit().getCourseRating());
-               sub = sub * HANDI_CONST / scores.get(i).getInherit().getCourseSlope(); 
+               double sub = (scores.get(i).getScore() - scores.get(i).getCourseRating());
+               sub = sub * HANDI_CONST / scores.get(i).getCourseSlope(); 
                diffs.add(sub);
             }
             //sort the differentials from lowest to highest
@@ -258,6 +263,8 @@ golfer.
             diffAvg = diffSum / 5 ;
             //multiply by 0.96
             diffAvg = diffAvg * HANDI_MULT;
+            DecimalFormat dF = new DecimalFormat("#.00");
+            diffAvg = Double.valueOf(dF.format(diffAvg));
          }
        }
        catch (Exception FieldOutOfBounds)
@@ -265,7 +272,7 @@ golfer.
          diffAvg = 9999.99;
          System.out.println(FieldOutOfBounds.getMessage()); 
        }            
-         
+       
        return diffAvg;
        }
      

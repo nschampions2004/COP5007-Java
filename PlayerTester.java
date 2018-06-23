@@ -56,35 +56,57 @@ public class PlayerTester
       System.out.println("Expected: Arcane 9999.99 9999, both exceptions thrown");
       
       
-      System.out.println("***Tests for Golfer and addScore methods with ArrayList***");
-      Golfer lemon = new Golfer("Betty Draper", "CT");
-      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
-      lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
-      System.out.println(lemon.toString());
-      
       System.out.println("***Checking the output of the default Golfer Class***");
       Golfer mich = new Golfer();
       System.out.println(mich.toString());
       System.out.println("Expected: __ __ ");
       
-      System.out.println("***Checking for getScore's return***");
+            
+      System.out.println("***Tests for parameterized Golfer, accessors, mutators, addScore methods with ArrayList***");
+      Golfer lemon = new Golfer("Betty Draper", "CT");
+      lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
+      lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
+      System.out.println(lemon.toString());
+      System.out.println("Expected: 'Header Line' and Two Score Lines");
+     
+      System.out.println("***Test for deleteScore (implicitly tests findScore)***");
+      lemon.deleteScore("06/07/06");
+      System.out.println(lemon.toString());
+      System.out.println("Expected: 'Header'  + 65 06/06/06 Augusta 65.0 65");
+      
+      System.out.println("***Test for deleteScore no Vals***");
+      System.out.println(mich.deleteScore("06/06/06"));
+      System.out.println("Expected: false");
+     
+      System.out.println("***Test for bad deleteScore rows***");
+      System.out.println(lemon.deleteScore("06/01/06"));
+      System.out.println("Expected: false");
+      
+      
+      System.out.println("***Checking for getScore's return on a good value***");
       System.out.println(lemon.getScore("06/06/06"));
       System.out.println("Expected: 65 06/06/06 Augusta 65.0 65");
       
-      System.out.println("***lowestScore***");
-      System.out.println(lemon.lowestScore());
-      System.out.println("Expected: 65 06/06/06 Augusta 65.0 65");
+      System.out.println("***Checking for getScore's return on a bad value***");
+      System.out.println(lemon.getScore("06/01/06"));
+      System.out.println("Expected: null");
       
+      System.out.println("***Checking for getScore's return with no values in ArrayList***");
+      System.out.println(mich.getScore("05/05/05"));
+      System.out.println("Expected: null");
+      
+      
+      System.out.println("***lowestScore with values in the ArrayList***");
+      lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
+      lemon.addScore("Rogersville", 21, "03/05/07", 65.0, 78);
+      System.out.println(lemon.lowestScore());
+      System.out.println("Expected: 21 03/05/07 Rogersville 65.0 78");
+            
       System.out.println("***lowestScore, no data in scores arraylist***");
       System.out.println(mich.lowestScore());
       System.out.println("Expected: null");
       
-      System.out.println("***deleting score***");
-      lemon.deleteScore("06/07/06");
-      System.out.println(lemon.toString());
-      System.out.println("Expected: 65 06/06/06 Augusta 65.0 65");
-      
-      System.out.println("***checking diffSum***");
+      System.out.println("***checking diffSum in calculateHandicap and toString()***");
       lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
       lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
@@ -98,8 +120,16 @@ public class PlayerTester
       lemon.addScore("Augusta", 67, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
       System.out.println(lemon.calculateHandicap());
-      System.out.println("Expected: ~ 1.6688");
-               
+      System.out.println(lemon.toString());
+      System.out.println("Expected: ~ 1.67");
+      
+      System.out.println("***No vals for Calculate Handicap***");
+      System.out.println(mich.calculateHandicap());
+      System.out.println(mich.toString());
+      System.out.println("Expected: Exception thrown and 9999.99 set for handicap");
+      
+      
+             
    }
 }
 

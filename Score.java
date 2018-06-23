@@ -7,7 +7,7 @@ COP5007 Programming Project #: 2
 File Name: Score.java
 */
 
-public class Score 
+public class Score extends Course
 {
 /**
    The value of the entered score in the Score class
@@ -23,12 +23,18 @@ public class Score
    private Course inherit;
 
 /**
+   The values representing the bounds of Course Score
+*/
+   private final int  HIGH_SCORE = 200;
+   private final int  LOW_SCORE = 0;
+
+/**
    Score method that defaults
 */   
    public Score () 
    {
       
-      //FIXME:  get the old values out of the piece Course class
+      //FIXME: get the old values out of the piece Course class
       inherit = new Course(); 
       score = 9999;
       date = "99/99/99";
@@ -44,11 +50,11 @@ Constructs a parameterized Score Object.
 @param courseSlope the slope of the course in the Score object between 55 and 155
 */   
    public Score (String courseName, int score, String date, double courseRating, int courseSlope)
+                 throws FieldOutOfBounds
    {      
-      Course inherit = new Course( );
-      inherit.setCourseName(courseName);
-      inherit.setCourseRating(courseRating);
-      inherit.setCourseSlope(courseSlope);
+      setCourseName(courseName);
+      setCourseRating(courseRating);
+      setCourseSlope(courseSlope);
       setScore(score);
       setDate(date);
    }
@@ -69,20 +75,26 @@ Constructs a parameterized Score Object.
     {
       return date;
     }
-/**
-   *Accessor for Course object within Scores
-   @return Course obj
-*/
-   public Course getInherit()
-   {
-      return inherit;
-   }    
+   
 /**
    *Mutator for Score Object's score
 */    
     public void setScore(int newScore)
     {
-         score = newScore;
+         try
+         {
+            if(newScore < LOW_SCORE || newScore > HIGH_SCORE)
+            {
+               throw new FieldOutOfBounds
+                     ("Course Score entered not between " + LOW_SCORE + " and " + HIGH_SCORE);
+            }
+         }
+         catch (Exception FieldOutOfBounds)
+         {
+            newScore = 9999;
+            System.out.println(FieldOutOfBounds.getMessage());
+         }
+         this.score = newScore;      
     }
 /**
    *Mutator for Score date
@@ -94,9 +106,12 @@ Constructs a parameterized Score Object.
 /**
    *Method for outputting nicely formatted 
 */
+    @Override
     public String toString() 
     {
-      return getScore() + " \t " + getDate() + " \t " + inherit.getCourseName() + 
-      " \t " + inherit.getCourseRating() + " \t " + inherit.getCourseSlope() + " \n";
+         String words = getScore() + " \t " + getDate() + " \t " + 
+         getCourseName() + " \t " + getCourseRating() + " \t " + 
+         getCourseSlope() + "\n";
+         return words;
     }
 }
