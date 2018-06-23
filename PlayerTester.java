@@ -62,7 +62,7 @@ public class PlayerTester
       System.out.println("Expected: __ __ ");
       
             
-      System.out.println("***Tests for parameterized Golfer, accessors, mutators, addScore methods with ArrayList***");
+      System.out.println("***Tests for parameterized Golfer, accessors, mutators, addScore, \n parameterized Score, Score's mutators, Score's toString, and Score's accessor methods with ArrayList***");
       Golfer lemon = new Golfer("Betty Draper", "CT");
       lemon.addScore("Augusta", 65, "06/06/06", 65.0, 65);
       lemon.addScore("Rockford", 66, "06/07/06", 65.0, 65);
@@ -128,7 +128,20 @@ public class PlayerTester
       System.out.println(mich.toString());
       System.out.println("Expected: Exception thrown and 9999.99 set for handicap");
       
+      System.out.println("***Test for default Score class***");
+      Score def = new Score ();
+      System.out.println(def.toString());
+      System.out.println("Expected: 9999  99/99/99 ___   9999.99  9999");
       
+      System.out.println("***Test for HIGH Score values***");
+      def.setScore(888);
+      System.out.println(def.toString());
+      System.out.println("Expected: Exception thrown, 9999 becomes the score for the line");
+      
+      System.out.println("***Test for LOW Score values***");
+      def.setScore(-888);
+      System.out.println(def.toString());
+      System.out.println("Expected: Exception thrown, 9999 becomes the score for the line");
              
    }
 }
