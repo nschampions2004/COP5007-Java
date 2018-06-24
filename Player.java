@@ -20,7 +20,7 @@ public abstract class Player
    	private int	IDNum;
    	
    /**
-   	Counter of Golfer's IdNum
+   	Counter of Players's IdNum
    */
    	private static	int nextIDNum = 999;
    /**

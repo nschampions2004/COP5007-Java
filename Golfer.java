@@ -47,9 +47,7 @@ public class Golfer extends Player
    {
       super(name);
       setHomeCourse(homeCourse);
-      this.scores = scores;
-      setIDNum();
-      
+      this.scores = scores;      
    }   
 /**
 Formats the Golfer constructer with 

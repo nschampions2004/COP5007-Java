@@ -36,7 +36,6 @@ public class Bowler extends Player
       super(name);
       setTeamName(teamName);
       this.bsScores = bsScores;
-      setIDNum();
    }
 /**
    Accessor for teamName

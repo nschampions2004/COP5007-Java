@@ -6,12 +6,16 @@ A class to test the Player, Golfer and Score classes.
 COP5007	Project #: 3
 File Name: PlayerTester.java
 */
-import java.util.Arrays;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class PlayerTester
 {
 
    public static void main(String[] args)
+      throws FieldOutOfBounds, IOException
    {
       System.out.println("***Tests Default Bowler Score***");
       BowlerScore jimmy = new BowlerScore();
@@ -167,8 +171,82 @@ public class PlayerTester
       System.out.println(init2.toString());
       System.out.println("Expected: 5 scores with a Current Handicap ~ 97.6");
       
+      //set up connection to data.text
+      FileInputStream fileByteStream = null;
+      Scanner inFS = null;
+      int scoreNum = 0;
+      String playerType = "";
+         
+      //go to open the file
+      System.out.println("Attempting to open data.txt...");
+      try
+      {   
+         fileByteStream = new FileInputStream("data.txt");
+         inFS = new Scanner(fileByteStream);
+      }
+      catch (Exception FieldOutOfBounds)
+      {
+         System.out.println("The specified file was not found.");
+         System.exit(0);
+      }
       
+      //loop through till no next line
+      while(inFS.hasNextLine())
+      {
+         //get the number of scores to add, move to the next line, 
+         //and pull in what type of player we're dealing with
+         scoreNum = Integer.valueOf(inFS.nextLine());
+         playerType = inFS.nextLine();
+         inFS.useDelimiter(",");
+         String tempPlayerName = inFS.next();
+         String tempPlayerHC = inFS.nextLine().replace(",", "");
+         String scoreData = "";
+         //branch based on playerType
+         if(playerType.equals("G"))
+         {
+            //read in the string to create the Golfer class
+            Golfer ready = new Golfer(tempPlayerName, tempPlayerHC);
+            for(int i = 0; i < scoreNum; i++)
+            {
+               //create a temp Score class and add it to your Golfer class you created above
+               int tempScore;
+               String tempCourseName = inFS.next();
+               String tempScoreString = inFS.next();
+               tempScore = Integer.valueOf(tempScoreString);
+               String tempDate = inFS.next();
+               double tempCourseRating = Double.parseDouble(inFS.next());
+               int tempCourseSlope = Integer.valueOf(inFS.nextLine().replace(",",""));
+               ready.addScore(tempCourseName, tempScore, tempDate, tempCourseRating, tempCourseSlope);
+             }
+             System.out.println(ready.toString());  
+         }
+         else if(playerType.equals("B"))
+         {
+            //read in the line below as a string to create the Bowler Class
+            System.out.println(tempPlayerName + " / " + tempPlayerHC); 
+            Bowler ready1 = new Bowler(tempPlayerName, tempPlayerHC);
+            for(int k = 0; k < scoreNum; k++)
+             {
+                //create a temp BowlerScore class and add it to your Bowler Class you created above
+                int tempBowl;
+                String tempBowlingAlley = inFS.next();
+                String tempBowlString = inFS.next();
+                tempBowl = Integer.valueOf(tempBowlString);
+                String tempDate1 = inFS.nextLine().replace(",", "");
+                ready1.addScore(tempBowlingAlley, tempBowl, tempDate1);
+             }
+             System.out.println(ready1.toString());
+         }
+         else
+         {
+           throw new FieldOutOfBounds 
+               ("Illegal Player Type Entered");
+         }
+      }
       
+      //finished with the file, shutting down
+      System.out.println("Closing file data.txt...");
+      fileByteStream.close();
    }
 }
 
