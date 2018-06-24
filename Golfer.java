@@ -223,7 +223,8 @@ describing the golfer and their recorded scores.
    }
 /**
 *This public method returns the Golfer's handicap based on the 10 most recent scores entered in for the 
-golfer.
+golfer. Invalid scores default to 9999 and appear in the ArrayList of Bowler Scores 
+after a FieldOutOfBounds Exception is thrown.
 @returns handicap after calculating the differentials, average of diffs, 96% of that number, and rounded to 2 spots. 
 @exception if scores array is less than 10 items
 */

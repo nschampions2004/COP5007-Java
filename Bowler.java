@@ -63,6 +63,8 @@ public class Bowler extends Player
 
 /**
    Calculator for bowling handicap
+   Invalid scores default to 9999 and appear in the ArrayList of Bowler Scores 
+   after a FieldOutOfBounds Exception is thrown.  
 */
    @Override
    public double calculateHandicap()
