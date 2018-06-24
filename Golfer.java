@@ -45,7 +45,7 @@ public class Golfer extends Player
 */    
    public Golfer(String name, String homeCourse)
    {
-      super(name) ;
+      super(name);
       setHomeCourse(homeCourse);
       this.scores = scores;
       setIDNum();
@@ -62,7 +62,7 @@ describing the golfer and their recorded scores.
       DecimalFormat dF = new DecimalFormat("#.00");
       String numberAsString = dF.format(calculateHandicap());
       String words = getName() + "\t ID number: " + getIDNum() + "\t Home Course: " + getHomeCourse() + 
-      "\t Current Handicap " + numberAsString + " \n";
+      "\t Current Handicap: " + numberAsString + " \n";
       if(scores.isEmpty())
       {
          //sets the initial line of words to the header line in for the Golfer class
@@ -71,6 +71,7 @@ describing the golfer and their recorded scores.
       else
       {
          //loop through ArrayList
+         words = words + "Score \t Date \t Course \t Course Rating \t Course Slope \n";
          for(int i = 0; i < scores.size(); i++)
          {
             //take that header block and add the toStrings

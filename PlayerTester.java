@@ -142,7 +142,29 @@ public class PlayerTester
       def.setScore(-888);
       System.out.println(def.toString());
       System.out.println("Expected: Exception thrown, 9999 becomes the score for the line");
-             
+      
+      System.out.println("***Test for Bowler Default Constructor***");
+      Bowler init = new Bowler();
+      System.out.println(init.toString());
+      System.out.println("Expected: ____ ID Num: 9999 Team Name: ____ Current Handicap: 0.0");       
+      
+      System.out.println("***Test for Bowler Paramed Constructor, accessor, mutator, and toStirng methods***");
+      Bowler init2 = new Bowler("Christina", "Red Rock Raiders");
+      System.out.println(init2.toString());
+      System.out.println("Expected: Christina ID Num 1003 Team Name: Red Rock Raiders Current Handicap 0.0");
+      
+      System.out.println("***Test for Bowler Add Score Method***");
+      init2.addScore("Don Carter's", 78, "06/06/06");
+      System.out.println(init2.toString());
+      System.out.println("Expected: 'Header' + 78 06/06/06 Don Carter's");
+      
+      System.out.println("***Test for Bowler Calculate Handicap***");
+      init2.addScore("Don Carter's", 78, "06/06/06");
+      init2.addScore("Don Carter's", 78, "06/06/06");
+      init2.addScore("Don Carter's", 78, "06/06/06");
+      init2.addScore("Don Carter's", 78, "06/06/06");
+      System.out.println(init2.toString());
+      System.out.println("Expected: 5 scores with a Current Handicap ~ 97.6");
    }
 }
 
