@@ -34,15 +34,12 @@ public abstract class Player
    /**
       This constructor makes the player object that the Golfer and Bowler will inherit
       @param name the name of the player in question
-      @param IDNum the id number assigned to the player in question
    */
       public Player(String name)
       {
          setName(name);
          setIDNum();
       }
-   
-   
    /**
    	*Accessor for Golfer	Name
    	@return the	name of the	player
@@ -52,7 +49,7 @@ public abstract class Player
    		return name;
    	}
    /** 
-   	Accessor	for idNum 
+   	Accessor	for idNum
    	@return the	id	number of the player
    */
    	public int getIDNum()
@@ -76,7 +73,6 @@ public abstract class Player
    	}
    /**
    	Mutator for	idNum
-   	@return returns the new	id	number of the player
    */	
    	public void	setIDNum()
    	{
@@ -85,6 +81,7 @@ public abstract class Player
    	}
    /**
       Abstract method for computeHandicap
+      @exception FieldOutOfBounds for not enough scores entered
    */
       abstract double calculateHandicap() throws FieldOutOfBounds;
 

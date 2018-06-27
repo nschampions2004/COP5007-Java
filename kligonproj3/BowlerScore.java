@@ -84,7 +84,7 @@ public class BowlerScore
 /**
    This method sets the score for the Bowler score obj
    @param score new score to replace previous score
-   @throws FieldOutOfBounds Exception for scores out of bounds
+   @exception FieldOutOfBounds Exception for scores out of bounds
 */
    public void setScore(int score)
                 throws FieldOutOfBounds

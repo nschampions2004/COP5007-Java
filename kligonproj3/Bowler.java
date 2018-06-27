@@ -31,6 +31,8 @@ public class Bowler extends Player
    }
 /**
    The Bowler method with parameterized values
+   @param name the name of the bowler
+   @param team name for the name of the bowler
 */ 
    public Bowler(String name, String teamName)   {
       super(name);
@@ -123,10 +125,5 @@ public class Bowler extends Player
          }
          return words;
       }
-      
    }
-   
-      
-   
-
 }

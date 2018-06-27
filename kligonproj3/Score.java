@@ -3,7 +3,7 @@ Score program that outputs a creates a Score object.
 @author Kyle Ligon
 @version 1.0
 
-COP5007 Programming Project #: 2
+COP5007 Programming Project #: 3
 File Name: Score.java
 */
 
@@ -18,11 +18,6 @@ public class Score extends Course
 */   
    private String date;
 /**
-   The Course object to be pulled in from Course
-*/
-   private Course inherit;
-
-/**
    The values representing the bounds of Course Score
 */
    private final int  HIGH_SCORE = 200;
@@ -32,14 +27,9 @@ public class Score extends Course
    Score method that defaults
 */   
    public Score () 
-   {
-      
-      //FIXME: get the old values out of the piece Course class
-      inherit = new Course(); 
+   {     
       score = 9999;
-      date = "99/99/99";
-      
-        
+      date = "99/99/99";      
    }
 /**
 Constructs a parameterized Score Object.
@@ -48,6 +38,7 @@ Constructs a parameterized Score Object.
 @param date the date that the score was made on must be 7 chars long where the 3rd and 5th entries being '/'
 @param courseRating the rating of the course between 60 and 80
 @param courseSlope the slope of the course in the Score object between 55 and 155
+@exception FieldOutOfBounds when the mutators attempt to set a bad Course Rating or Course Slope
 */   
    public Score (String courseName, int score, String date, double courseRating, int courseSlope)
                  throws FieldOutOfBounds
@@ -78,6 +69,8 @@ Constructs a parameterized Score Object.
    
 /**
    *Mutator for Score Object's score
+   @param newScore the score to set for the Golfer's new score
+   @exception FieldOutOfBounds thrown for scores out of bounds
 */    
     public void setScore(int newScore)
     {
@@ -98,13 +91,15 @@ Constructs a parameterized Score Object.
     }
 /**
    *Mutator for Score date
+   @param is the new string to set as the date
 */    
     public void setDate(String setDate)
     {
          date = setDate;
     }
 /**
-   *Method for outputting nicely formatted 
+   *Method for outputting nicely formatted
+   @return nicely formatted score printing 
 */
     @Override
     public String toString() 

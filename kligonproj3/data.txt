@@ -1,0 +1,32 @@
+0
+G
+Anthony Pinto,AC Read
+3
+B
+Joe Johnson,Jennies Pizza
+Felton Lanes,112,09/22/17
+Bowlarama,142,09/24/17
+Cordova Lanes,203,09/26/17
+11
+G
+Tiger Woods,Isleworth
+Augusta,0,05/01/18,60.0,60
+Augusta,68,05/01/18,76.2,135
+Bethpage Black,71,06/01/18,76.6,144
+Augusta,68,07/01/18,76.2,135
+Bethpage Black,71,06/01/18,76.6,144
+Augusta,68,08/01/18,76.2,135
+Bethpage Black,71,09/01/18,76.6,144
+Augusta,68,10/01/18,76.2,135
+Bethpage Black,71,11/01/18,76.6,144
+Augusta,68,12/01/18,76.2,135
+Bethpage Black,71,01/01/19,76.6,144
+6
+B
+Earl Anthony,Nine Mile Denny's
+Firestone Lanes,180,09/21/68
+Firestone Lanes,223,09/22/68
+Bowlarama,246,09/24/76
+Cordova Lanes,210,09/25/77
+Bowlarama,246,09/24/78
+Cordova Lanes,210,09/24/79

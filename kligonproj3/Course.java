@@ -45,8 +45,8 @@ public class Course
    @param courseName the name of the course the score was made at
    @param courseRating the rating of the course between 60 and 80
    @param courseSlope the slope of the course in the Score object between 55 and 155
-   @throws FieldOutOfBounds Exception for CourseSlope out of bounds
-   @throws FieldOutOfBounds Exception for CourseRating out of bounds
+   @exception FieldOutOfBounds Exception for CourseSlope out of bounds
+   @exception FieldOutOfBounds Exception for CourseRating out of bounds
 */   
    public Course(String courseName, double courseRating, int courseSlope)
                   throws FieldOutOfBounds
@@ -58,6 +58,7 @@ public class Course
    
 /** 
    This accessor gets the courseName from a Course object
+   @return courseName the name of the course
 */
    public String getCourseName() 
    {
@@ -65,6 +66,7 @@ public class Course
    }
 /** 
    This accessor gets the courseRating from a Course object
+   @return courseRating the rating of the course rating
 */
    public double getCourseRating()
    {
@@ -72,6 +74,7 @@ public class Course
    }
 /** 
    This accessor gets the courseSlope from a Course object
+   @return courseSlope the slope of the course
 */
    public int getCourseSlope()
    {
@@ -88,7 +91,7 @@ public class Course
 /**
    This mutator sets the courseRating for a Course object
    @param newCourseRating the new course rating to alter Course Rating
-   @throws FieldOutOfBounds Exception for Course Rating out of bounds
+   @exception FieldOutOfBounds Exception for Course Rating out of bounds
 */
    public void setCourseRating(double newCourseRating)
    {
@@ -111,7 +114,7 @@ public class Course
 /**
    This mutator sets the courseSlope for a Course object
    @param newCourseSlope sets the new value of the Course Slope
-   @throws FieldOutOfBounds for the new value of course slope being out of bounds
+   @exception FieldOutOfBounds for the new value of course slope being out of bounds
 */
    public void setCourseSlope(int newCourseSlope)
    {

@@ -218,15 +218,15 @@ public class PlayerTester
                int tempCourseSlope = Integer.valueOf(inFS.nextLine().replace(",",""));
                ready.addScore(tempCourseName, tempScore, tempDate, tempCourseRating, tempCourseSlope);
              }
+             //print out the Golfer's records
              System.out.println(ready.toString());  
          }
          else if(playerType.equals("B"))
          {
             //read in the line below as a string to create the Bowler Class
-            System.out.println(tempPlayerName + " / " + tempPlayerHC); 
             Bowler ready1 = new Bowler(tempPlayerName, tempPlayerHC);
             for(int k = 0; k < scoreNum; k++)
-             {
+            {
                 //create a temp BowlerScore class and add it to your Bowler Class you created above
                 int tempBowl;
                 String tempBowlingAlley = inFS.next();
@@ -235,6 +235,7 @@ public class PlayerTester
                 String tempDate1 = inFS.nextLine().replace(",", "");
                 ready1.addScore(tempBowlingAlley, tempBowl, tempDate1);
              }
+             //print out the Bowler records
              System.out.println(ready1.toString());
          }
          else

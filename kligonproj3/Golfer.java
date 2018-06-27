@@ -69,6 +69,7 @@ describing the golfer and their recorded scores.
       else
       {
          //loop through ArrayList
+         //header block gets col names added below
          words = words + "Score \t Date \t Course \t Course Rating \t Course Slope \n";
          for(int i = 0; i < scores.size(); i++)
          {
@@ -176,11 +177,12 @@ describing the golfer and their recorded scores.
 /**
 *This public method gets the Score object with the lowest score.  Null if no scores entered.  
 @return the Score object matching the lowest score in the scores array, null if k equals -1
+@return null when the scores array is empty
 */
    public Score lowestScore()
    {
       Score lowestScore = new Score();
-      //highest golf score
+      //high golf score
       int SMALL_SO_FAR = 1000;
       //scores empty = notfound sent back
       if(scores.isEmpty())
@@ -204,6 +206,7 @@ describing the golfer and their recorded scores.
     }
  /**
 *This public method returns true or false based on whether or not a date is found and the entry deleted
+@param dateCheck the date to find with findScore and delete later on
 @return true when a date is found in the scores array and deleted
 @return false when a date is found in the scores array is not found
 */
@@ -224,7 +227,7 @@ describing the golfer and their recorded scores.
 golfer. Invalid scores default to 9999 and appear in the ArrayList of Bowler Scores 
 after a FieldOutOfBounds Exception is thrown.
 @returns handicap after calculating the differentials, average of diffs, 96% of that number, and rounded to 2 spots. 
-@exception if scores array is less than 10 items
+@exception if scores array is less than 10 items throws exception
 */
    @Override
    public double calculateHandicap() 
