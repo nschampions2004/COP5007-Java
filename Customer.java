@@ -56,6 +56,12 @@ public class Customer
    }
 /**
    Parameterized Customer Constructor
+   @param name the name of the customers
+   @param address the address of the customer
+   @param city the city of the customer
+   @param state the state the customer lives in
+   @param zipCode the zipcode the customer lives in
+   @param phoneNumber the phone number of the customer
 */
    public Customer(String name, String address, String city, String state, int zipCode, String phoneNumber)
    {
@@ -65,9 +71,11 @@ public class Customer
       setState(state);
       setZipCode(zipCode);
       setPhoneNumber(phoneNumber);
+      setIDNum();
    }
 /**
    accessor for name
+   @return the name of the customer
 */
    public String getName()
    {
@@ -75,6 +83,7 @@ public class Customer
    }
 /**
    accessor for address
+   @return the address of the customer
 */
    public String getAddress()
    {
@@ -82,6 +91,7 @@ public class Customer
    }
 /**
    accessor for city
+   @return the city of the customer
 */
    public String getCity()
    {
@@ -89,6 +99,7 @@ public class Customer
    }
 /**
    accessor for state
+   @return the state the customer lives in 
 */
    public String getState()
    {
@@ -96,6 +107,7 @@ public class Customer
    }
 /**
    accessor for zip code
+   @return the zip code 
 */
    public int getZipCode()
    {
@@ -103,11 +115,20 @@ public class Customer
    }
 /**
    accessor for Phone Number
+   
 */
    public String getPhoneNumber()
    {
       return phoneNumber;
    }
+/**
+   accessor for IDNum
+*/
+   public int getIDNum()
+   {
+      return IDNum;
+   }
+
 /**
    mutator for Name
 */
@@ -150,7 +171,24 @@ public class Customer
    {
        this.phoneNumber = newPhoneNumber;
    }
-
-
-
+/**
+   mutator for IDNum
+*/
+   public void setIDNum()
+   {
+      nextIDNum++;
+      this.IDNum = nextIDNum;
+   }
+/**
+   toString method for Customer class
+*/
+   public String toString()
+   {
+      String words = "";
+      words = "Name: " + getName() + "\t Address: " + getAddress() + ", " 
+      + getCity() + ", " + getState() + ", " + getZipCode() + 
+      "\t Phone Number: " + getPhoneNumber() + "\t IDNum: " + getIDNum();
+      
+      return words;
+    }
 }
