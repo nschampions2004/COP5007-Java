@@ -51,8 +51,16 @@ public class TextMenuCalculator {
       System.out.println(numberOfOptions);
       //pull in what type of class the following line is
       baseClass = inFS.nextLine();
-      System.out.println(baseClass);    
-   }
+      System.out.println(baseClass);
+      if(baseClass == "Monthly Talk Packages")
+      {
+         for(int i = 0; i < numberOfOptions; i++)
+         {
+                        
+         }
+      }
+      
+    }
   }   
    // print menu
    /*for (int i = 1; i < 4; i++)
