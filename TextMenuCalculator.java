@@ -105,31 +105,17 @@ public class TextMenuCalculator {
     System.out.println("Closing file planReadin.txt");
     fileByteStream.close();
   
-/*
+
    //print menu
    for (int i = 1; i < 4; i++)
-      if(i == 1)
-      {
-         System.out.println(i + "." + talkPackages.get(i - 1).toString());
-      }
-      /*else if(i == 2)
-      {
-         System.out.println(i + ". 5000 minutes for $49.99");
-      }
-      else if(i == 3)
-      {
-         System.out.println(i + ". Unlimited for $69.99");
-      }
-      
-      else
-      {
-         System.out.println("Invalid decision.");
-      }
+   
+      System.out.println(i + "." + talkPackages.get(i - 1));
+   
    System.out.println("0. Quit");
    boolean quit = false;
    int menuItem;
    do {
-         System.out.println("Please choose an option for your monthly minute allowance.  Otherwise, 0 to exit: ");
+         System.out.println("Please choose an option. Otherwise, 0 to exit: ");
          menuItem = in.nextInt();
          switch (menuItem) {
          case 1:
@@ -146,11 +132,9 @@ public class TextMenuCalculator {
                break;
          default:
                System.out.println("Invalid choice.");
-                              }
+            }
          }
          while (!quit);
-         System.out.println("Thank you for choosing your minute allowance per month.");
-*/
+         System.out.println("Thank you for choosing."); 
    } 
-
 }
