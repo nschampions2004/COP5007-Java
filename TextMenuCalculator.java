@@ -27,6 +27,10 @@ public class TextMenuCalculator {
    String billClass;
    int numberOfOptions;
    String baseClass;
+   ArrayList<MonthlyTalkPackage> talkPackages = new ArrayList<MonthlyTalkPackage>( );
+   ArrayList<PhoneChoice> phoneChoices = new ArrayList<PhoneChoice>( );
+   ArrayList<DataPackage> dataPackages = new ArrayList<DataPackage>( );
+
    
    //go to open the file
    System.out.println("Attempting to open planReadin.txt...");
@@ -57,8 +61,7 @@ public class TextMenuCalculator {
       System.out.println("You have input " + numberOfOptions + " options for the " + baseClass + " section.");
       //branch on the string that comes next
       if(baseClass.equals("Monthly Talk Packages"))
-      {
-         ArrayList<MonthlyTalkPackage> talkPackages = new ArrayList<MonthlyTalkPackage>( );         
+      {  
          for(i = 0; i < numberOfOptions; i++)
          {
             String tempTalkMinutes = inFS.next();
@@ -71,7 +74,6 @@ public class TextMenuCalculator {
       }
       else if(baseClass.equals("Phone Choices"))
       {
-         ArrayList<PhoneChoice> phoneChoices = new ArrayList<PhoneChoice>( );
          for(i = 0; i < numberOfOptions; i++)
          {
             String tempPhoneName = inFS.next();
@@ -84,7 +86,6 @@ public class TextMenuCalculator {
       }
       else if(baseClass.equals("Monthly Data Packages"))
       {
-         ArrayList<DataPackage> dataPackages = new ArrayList<DataPackage>( );
          for(i = 0; i < numberOfOptions; i++)
          {
             String tempDataName = inFS.next();
@@ -97,7 +98,7 @@ public class TextMenuCalculator {
        }
        else
        {
-         System.out.println("Error: Please Enter a Valid Consumer Object");
+         System.out.println("Error: Please Enter a Valid Consumer Object.");
        }
     }
     
@@ -106,16 +107,16 @@ public class TextMenuCalculator {
     fileByteStream.close();
   
 
-   //print menu
-   for (int i = 1; i < 4; i++)
+   //print menu for Talk Minutes
+   for (int i = 1; i < talkPackages.size() + 1; i++)
    
       System.out.println(i + "." + talkPackages.get(i - 1));
    
-   System.out.println("0. Quit");
+   System.out.println("0. Move on to Phone Model");
    boolean quit = false;
    int menuItem;
    do {
-         System.out.println("Please choose an option. Otherwise, 0 to exit: ");
+         System.out.println("Please choose an option. Otherwise, 0 to move onto Phone Model.");
          menuItem = in.nextInt();
          switch (menuItem) {
          case 1:
@@ -135,6 +136,64 @@ public class TextMenuCalculator {
             }
          }
          while (!quit);
-         System.out.println("Thank you for choosing."); 
+         System.out.println("Thank you for choosing.");
+   
+   //print menu for Phone Choice
+   for (int i = 1; i < phoneChoices.size() + 1; i++)
+   
+      System.out.println(i + "." + phoneChoices.get(i - 1));
+   
+   System.out.println("0. Move on to Phone Model");
+   do {
+         System.out.println("Please choose an option. Otherwise, 0 to move onto Data Packages.");
+         menuItem = in.nextInt();
+         switch (menuItem) {
+         case 1:
+               System.out.println("You selected: Model 100 for $39.95.");
+               break;
+         case 2:
+               System.out.println("You selected: Model 200 for $49.95.");
+               break;
+         case 3: 
+               System.out.println("You selected: Model 300 for $59.95.");
+               break;
+         case 0:
+               quit = true;
+               break;
+         default:
+               System.out.println("Invalid choice.");
+            }
+         }
+         while (!quit);
+         System.out.println("Thank you for choosing.");
+         
+   //print menu for Data Package Choice
+   for (int i = 1; i < dataPackages.size() + 1; i++)
+   
+      System.out.println(i + "." + dataPackages.get(i - 1));
+   
+   System.out.println("0. Quit");
+   do {
+         System.out.println("Please choose an option. Otherwise, 0 to exit: ");
+         menuItem = in.nextInt();
+         switch (menuItem) {
+         case 1:
+               System.out.println("You selected: 500 MB for $50.00.");
+               break;
+         case 2:
+               System.out.println("You selected: 2.5 GB for $60.00.");
+               break;
+         case 3: 
+               System.out.println("You selected: Unlimited for $70.00.");
+               break;
+         case 0:
+               quit = true;
+               break;
+         default:
+               System.out.println("Invalid choice.");
+            }
+         }
+         while (!quit);
+         System.out.println("Thank you for choosing.");
    } 
 }
