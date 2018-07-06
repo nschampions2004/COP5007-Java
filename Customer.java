@@ -42,6 +42,26 @@ public class Customer
 */
    private int IDNum;
 /**
+   The Monthly Talk Package the customer picks
+*/
+   public MonthlyTalkPackage monthlyTalkPackage;
+/**
+   The Phone Choice the customer picks
+*/
+   public PhoneChoice phoneChoice;
+/**
+   The Monthly Data Package 
+*/
+   public DataPackage monthlyDataPackage;
+/**
+   The calculator for the Monthly Bill
+*/
+   private double monthlyBill;
+/**
+   The calculator for the Startup Bill
+*/
+   private double startupBill;
+/**
    Customer constructor that defaults
 */
    public Customer()
@@ -180,6 +200,13 @@ public class Customer
       this.IDNum = nextIDNum;
    }
 /**
+   setting the customer's MonthlyTalkPackage
+*/ 
+   public void setMonthlyTalkPackage(int choiceNumber)
+   {
+      this.monthlyTalkPackage = talkPackages.get(choiceNumber + 1);
+   }
+/**
    toString method for Customer class
 */
    public String toString()
@@ -191,4 +218,20 @@ public class Customer
       
       return words;
     }
+/**    
+/**
+   The calculator for the Customer's monthly fee's
+
+   public double monthlyBillCalculator()
+   {
+      monthlyBill = getTalkPackagePrice() + getDataPackagePrice();
+   }
+/**
+   The calculator for the Customer's startup fee's
+
+   public double startupBillCalculator()
+   {
+      startupBill = getShippingCost() + getPhoneCost();
+   }
+*/
 }
