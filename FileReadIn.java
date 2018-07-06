@@ -10,7 +10,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
-public class FileReadIn {
+public class FileReadIn 
+   throws IOException
+{
 //set up the connection to planReadin.txt
    Scanner in = new Scanner(System.in);
    FileInputStream fileByteStream = null;

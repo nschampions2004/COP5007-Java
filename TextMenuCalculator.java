@@ -27,7 +27,8 @@ public class TextMenuCalculator {
    int initMenuItem;
    if(in.nextInt() == 1)
    {
-   	//print menu for Talk Minutes
+   	
+      //print menu for Talk Minutes
    	System.out.println("Monthly Talk Plans");
       for (int i = 1; i	< talkPackages.size() +	1;	i++)
    	
