@@ -1,0 +1,91 @@
+         	/*
+            do	{
+         			System.out.println("Please choose an option. Otherwise, 0 to move onto Phone Model.");
+         			menuItem	= in.nextInt();
+         			switch (menuItem)	{
+         			case 1:
+         					System.out.println("You selected: " + talkPackages.get(i - 1).get for $29.99.");
+         					break;
+         			case 2:
+         					System.out.println("You selected: 5000 minutes for $49.99.");
+         					break;
+         			case 3: 
+         					System.out.println("You selected:  Unlimited minutes for $69.99.");
+         					break;
+         			case 0:
+         					quit = true;
+         					break;
+         			default:
+         					System.out.println("Invalid choice.");
+         				}
+         			}
+         			while	(!quit);
+                  //FIXME: add line here to set plan for customer for Monthly Talk Packages
+         			System.out.println("Thank you for choosing.");
+         	
+         	//print menu for Phone Choice
+         	System.out.println("Phone Choice");
+            //reset quit variable
+            quit = false;
+            for (int	i = 1; i	< phoneChoices.size() +	1;	i++)
+         	
+         		System.out.println(i	+ "."	+ phoneChoices.get(i	- 1));
+         	
+         	System.out.println("0. Move on to Phone Model");
+         	do	{
+         			System.out.println("Please choose an option. Otherwise, 0 to move onto Data Packages.");
+         			menuItem	= in.nextInt();
+         			switch (menuItem)	{
+         			case 1:
+         					System.out.println("You selected: Model 100 for $39.95.");
+         					break;
+         			case 2:
+         					System.out.println("You selected: Model 200 for $49.95.");
+         					break;
+         			case 3: 
+         					System.out.println("You selected: Model 300 for $59.95.");
+         					break;
+         			case 0:
+         					quit = true;
+         					break;
+         			default:
+         					System.out.println("Invalid choice.");
+         				}
+         			}
+         			while	(!quit);
+                  //FIXME: add line here to set plan for customer for phone choice
+         			System.out.println("Thank you for choosing.");
+         			
+         	//print menu for Data Package	Choice
+            System.out.println("Monthly Data Plans");
+            //reset quit variable
+            quit = false;
+         	for (int	i = 1; i	< dataPackages.size() +	1;	i++)
+         	
+         		System.out.println(i	+ "."	+ dataPackages.get(i	- 1));
+         	
+         	System.out.println("0. Quit");
+         	do	{
+         			System.out.println("Please choose an option. Otherwise, 0 to exit: ");
+         			menuItem	= in.nextInt();
+         			switch (menuItem)	{
+         			case 1:
+         					System.out.println("You selected: 500 MB for $50.00.");
+         					break;
+         			case 2:
+         					System.out.println("You selected: 2.5 GB for $60.00.");
+         					break;
+         			case 3: 
+         					System.out.println("You selected: Unlimited for $70.00.");
+         					break;
+         			case 0:
+         					quit = true;
+         					break;
+         			default:
+         					System.out.println("Invalid choice.");
+         				}
+         			}
+         			while	(!quit);
+                  //FIXME: add line here to set plan for customer for Monthly Data Transactions
+         			System.out.println("Thank you for choosing.");
+                  */
