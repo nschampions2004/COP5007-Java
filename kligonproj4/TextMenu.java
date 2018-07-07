@@ -129,7 +129,18 @@ public class TextMenu
             System.out.println(i + 1 + ". " + text);
          }
        }
-
+       public int getTalkPackageSize()
+       {
+         return talkPackages.size();
+       }
+       public int getPhoneChoiceSize()
+       {
+         return phoneChoice.size();
+       }
+       public int getDataPackageSize()
+       {
+         return dataPackages.size();
+       }
        public MonthlyTalkPackage getTalkPackage(int i)
        {
          return talkPackages.get(i);
