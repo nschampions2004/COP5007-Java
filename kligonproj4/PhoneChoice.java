@@ -33,22 +33,22 @@ public class PhoneChoice extends Option
    {
       super(phoneName, phonePrice);
    }
-// /**
-//    accessor for phone name
-//    @return phoneName the name of the phone
-// */
-//    public String getPhoneName()
-//    {
-//       return phoneName;
-//    }
-// /**
-//    accessor for phone price
-//    @return phonePrice the price of the phone plans
-// */
-//    public double getPhonePrice()
-//    {
-//       return phonePrice;
-//    }
+/**
+   accessor for phone name
+   @return phoneName the name of the phone
+*/
+   public String getPhoneName()
+   {
+      return phoneName;
+   }
+/**
+   accessor for phone price
+   @return phonePrice the price of the phone plans
+*/
+   public double getPhonePrice()
+   {
+      return phonePrice;
+   }
 /**
    mutator for the phone name
    @param phoneName the name to set the phone name to

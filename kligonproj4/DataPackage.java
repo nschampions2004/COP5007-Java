@@ -33,22 +33,22 @@ public class DataPackage extends Option
    {
       super(dataName, dataPrice);
    }
-// /**
-//    the accessor for the dataName of the DataPackage
-//    @return dataName the name of the data package
-// */
-//    public String getDataName()
-//    {
-//       return dataName;
-//    }
-// /**
-//    the accessor for the data price of the DataPackage
-//    @return dataPrice the price of the data package
-// */
-//    public double getDataPrice()
-//    {
-//       return dataPrice;
-//    }
+/**
+   the accessor for the dataName of the DataPackage
+   @return dataName the name of the data package
+*/
+   public String getDataName()
+   {
+      return dataName;
+   }
+/**
+   the accessor for the data price of the DataPackage
+   @return dataPrice the price of the data package
+*/
+   public double getDataPrice()
+   {
+      return dataPrice;
+   }
 /**
    the mutatator for the data name section of the DataPackage object
    @param dateName the name of the data package to set the object to

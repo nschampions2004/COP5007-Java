@@ -6,6 +6,7 @@ Customer program that creates and outputs a Customer object
 COP5007 Programming Project #: 4
 File Name: Customer.java
 */
+import java.util.regex.*;
 
 public class Customer
 {
@@ -58,13 +59,17 @@ public class Customer
 */
    public DataPackage monthlyDataPackage;
 /**
-   The calculator for the Monthly Bill
+   The total for the Monthly Bill
 */
    private double monthlyBill;
 /**
-   The calculator for the Startup Bill
+   The total for the Startup Bill
 */
    private double startupBill;
+/**
+   The shipping cost for the customer
+*/   
+   private double shippingCost;
 /**
    Customer constructor that defaults
 */
@@ -185,15 +190,53 @@ public class Customer
    mutator for Zip Code
 */
    public void setZipCode(int newZipCode)
+      throws FieldOutOfBounds
    {
-       this.zipCode = newZipCode;
+       try
+       {
+         if(displayFind("^[0-9]{5}$", String.valueOf(newZipCode)))
+         {
+            this.zipCode = newZipCode;
+         }
+         else
+         {
+            throw new FieldOutOfBounds 
+                        ("Zip Code must be 5 numerical digits");
+         }
+       }
+       catch (Exception FieldOutOfBounds)
+       {
+            this.zipCode = 1234567890;
+            System.out.println(FieldOutOfBounds.getMessage());
+       } 
    }
 /**
    mutator for Phone Number
 */
    public void setPhoneNumber(String newPhoneNumber)
+      throws FieldOutOfBounds
    {
-       this.phoneNumber = newPhoneNumber;
+     boolean moveOn = false;
+     while(moveOn)
+     { 
+       try
+       {
+         if(displayFind("^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$", newPhoneNumber))
+         {
+            this.phoneNumber = newPhoneNumber;
+            moveOn = true;
+         }
+         else
+         {
+            throw new FieldOutOfBounds 
+                        ("Phone Number must be in the form of (XXX) XXX-XXXX; \nplease re-enter a number");
+         }
+       }
+       catch (Exception FieldOutOfBounds)
+       {
+            System.out.println(FieldOutOfBounds.getMessage());
+       }
+      }
    }
 /**
    mutator for IDNum
@@ -224,33 +267,111 @@ public class Customer
    {
       this.dataPackage = choiceNumber;
    }
-
+/**
+   getting the Monthly Talk Package for the Customer
+*/
+   public MonthlyTalkPackage getMonthlyTalkPackage()
+   {
+      return this.monthlyTalkPackage;
+   }
+/**
+   getting the Data Package for the Customer
+*/
+   public DataPackage getDataPackage()
+   {
+      return this.monthlyDataPackage;
+   }   
+/**
+   getting the Phone Package for the Customer
+*/
+   public PhoneChoice getPhoneChoice()
+   {
+      return this.phoneChoice;
+   }    
 /**
    toString method for Customer class
 */
    public String toString()
    {
-      String words = "";
-      words = "Name: " + getName() + "\t Address: " + getAddress() + ", " 
-      + getCity() + ", " + getState() + ", " + getZipCode() + 
-      "\t Phone Number: " + getPhoneNumber() + "\t IDNum: " + getIDNum();
-      
+      setMonthlyBill(this.monthlyTalkPackage, this.dataPackage);
+      setStartupCost(this.phoneChoice);
+      String words = "IDNum: " + getIDNum() + "\t Startup Fees: $" + getStartupCost() + 
+      "\t Monthly Fees: $" + getMonthlyBill();  
       return words;
     }
-/**    
 /**
    The calculator for the Customer's monthly fee's
-
-   public double monthlyBillCalculator()
+*/
+   public void setMonthlyBill(MonthlyTalkPackage talkPackage, DataPackage dataPackage)
    {
-      monthlyBill = getTalkPackagePrice() + getDataPackagePrice();
+      this.monthlyBill = talkPackage.getOptionPrice() + dataPackage.getOptionPrice();
+   }
+/**
+   Method to calculate shipping cost for the customer
+*/
+   public void setShippingCost()
+   {        
+      if(Pattern.matches("^325", String.valueOf(this.zipCode)))
+      {
+         this.shippingCost = 0.00;
+      }
+      else if(Pattern.matches("^(99[5-9])|(96[78])", String.valueOf(zipCode)))
+      {
+         this.shippingCost = 10.00;
+      }
+      else
+      {
+         this.shippingCost = 5.00;
+      }
+   }
+/**
+   Accessor for Shipping Cost for each customer
+*/
+   public double getShippingCost()
+   {
+      return shippingCost;
    }
 /**
    The calculator for the Customer's startup fee's
-
-   public double startupBillCalculator()
-   {
-      startupBill = getShippingCost() + getPhoneCost();
-   }
 */
+   public void setStartupCost(PhoneChoice phoneChoice)
+   {
+      this.startupBill = this.shippingCost + phoneChoice.getOptionPrice();
+   }
+/**
+   The accessor for the Customer's startup fee's
+*/
+   public double getStartupCost()
+   {
+      return this.startupBill;
+   }
+/**
+   The accessor for the Customer's monthly bill
+*/
+   public double getMonthlyBill()
+   {
+      return this.monthlyBill;
+   }
+/**
+   The accessor for the Customer's phone choice
+*/
+   public String getPhoneName()
+   {
+      return getPhoneChoice().getOptionName();
+   }
+/**
+   Method to check if a string has a pattern
+*/
+   public boolean displayFind(String regex, String searchMe)
+   {
+      boolean gotIt = false;
+      Pattern p = Pattern.compile(regex);
+      Matcher m = p.matcher(searchMe);
+      while(m.find())
+      {
+         gotIt = true;
+      }
+      
+      return gotIt;
+   }
 }
