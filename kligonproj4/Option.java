@@ -6,6 +6,7 @@ An abstract class that will hold the Options' concrete classes
 COP5007	Project #: 4
 File Name: Options.java
 */
+import java.text.DecimalFormat;
 
 public abstract class Option
 {
@@ -69,7 +70,8 @@ public abstract class Option
    */
       public String toString()
       {
-         String words = getOptionName() + ": $" + getOptionPrice();
+         DecimalFormat df = new DecimalFormat("#.00");
+         String words = getOptionName() + ": $" + df.format(getOptionPrice()) + ".";
          return words;
       }
 }

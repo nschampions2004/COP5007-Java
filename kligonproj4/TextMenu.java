@@ -8,8 +8,6 @@ COP5007 Programming Project #: 4
 File Name: TextMenu.java
 */
 
-//import java.util.Scanner;
-//import java.util.regex.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
@@ -57,7 +55,7 @@ public class TextMenu
             numberOfOptions = Integer.valueOf(inFS.nextLine().replace(",",""));
             //pull in what type of class the following line is
             baseClass = inFS.nextLine().trim();
-            System.out.println("You have input " + numberOfOptions + " options for the " + baseClass + " section.");
+            System.out.println("You have input " + numberOfOptions + " options for the " + baseClass + " section.\n");
             
             //branch on the string that comes next
             if(baseClass.equals("Monthly Talk Packages"))
@@ -97,7 +95,7 @@ public class TextMenu
          }                
          
          //finished with the file, shutting down
-         System.out.println("Closing file planReadin.txt");
+         System.out.println("Closing file planReadin.txt.\n");
          fileByteStream.close();
          }
          

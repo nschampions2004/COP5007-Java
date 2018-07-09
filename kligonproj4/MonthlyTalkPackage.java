@@ -75,12 +75,4 @@ public class MonthlyTalkPackage extends Option
    {
       return super.toString() + "\n";
    }
-/**
-   add Package to the Monthly Talk Package Plan
-*/
-   /*public void addTalkPackage(String plan, double price)
-   {
-      talkPackages.add(new MonthlyTalkPackage(plan, price));
-   } 
-   */ 
 } 
