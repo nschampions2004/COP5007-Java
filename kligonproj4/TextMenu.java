@@ -14,13 +14,24 @@ import java.util.*;
 
 public class TextMenu 
    {
-      //define and initialize ArrayList for Concrete Options Objects
+      /**
+         the array list of the Monthly Talk Packages options
+      */    
       private ArrayList<MonthlyTalkPackage> talkPackages = new ArrayList<MonthlyTalkPackage>() ;
+      /**
+         the array list of the Phone Choice Packages options
+      */
       private ArrayList<PhoneChoice> phoneChoice = new ArrayList<PhoneChoice>();
+      /**
+         the array list of the Data Packages packages options
+      */
       private ArrayList<DataPackage> dataPackages = new ArrayList<DataPackage>();   
       
             
-      //method to read in the file   
+      /**
+         the method that reads in the .txt file that states the options for the different Object classes
+         @throws IOException
+      */           
       public void fileReadin()
          throws IOException
       {
@@ -99,7 +110,9 @@ public class TextMenu
          fileByteStream.close();
          }
          
-      //method to output the options to the User (Should work on any class)
+      /**
+         the method that will display the Monthly Talk Packages in the menu
+      */
       public void displayTalkPackagesOptions()
       {
          for(int i = 0; i < talkPackages.size(); i++)
@@ -109,6 +122,9 @@ public class TextMenu
             System.out.println(i + 1 + ". " + text);
          }
       }
+      /**
+         the method that will display the Phone Choice Options in the menu
+      */
       public void displayPhoneChoiceOptions()
       {
          for(int i = 0; i < phoneChoice.size(); i++)
@@ -118,7 +134,10 @@ public class TextMenu
             System.out.println(i + 1 + ". " + text);
          }
        }
-       public void displayDataPackageOptions()
+      /**
+         the method that will display the Data Packages Options in the menu
+      */
+      public void displayDataPackageOptions()
       {
          for(int i = 0; i < dataPackages.size(); i++)
          {
@@ -127,27 +146,53 @@ public class TextMenu
             System.out.println(i + 1 + ". " + text);
          }
        }
+       /**
+         the method that will pull in the size from the talk packages so that we can read in 
+         dynamic Monthly Talk Package Options
+         @return the size of the talkPackages array list
+       */
        public int getTalkPackageSize()
        {
          return talkPackages.size();
        }
+       /**
+         the method that will pull in the size from the Cell Phone array list so that we can read in 
+         dynamic Cell Phone Options
+         @return the size of the Cell Phone array list
+       */
        public int getPhoneChoiceSize()
        {
          return phoneChoice.size();
        }
+       /**
+         the method that will pull in the size from the Data Package array list so that we can read in 
+         dynamic Data Packages Options
+         @return the size of the Data Packages array list
+       */
        public int getDataPackageSize()
        {
          return dataPackages.size();
        }
+       /**
+         the method that pulls the Monthly Talk Packages from the talkPackages array list
+         @return the talkPackages object specified by i
+       */
        public MonthlyTalkPackage getTalkPackage(int i)
        {
          return talkPackages.get(i);
        }
-  
+       /**
+         the method that pulls the Phone Choices from the Phone Choices array list
+         @return the Phone Choices object specified by i
+       */
        public PhoneChoice getPhoneChoice(int i)
        {
          return phoneChoice.get(i);
        }
+       /**
+         the method that pulls the Data Packages from the Data Packages array list
+         @return the Data Packages object specified by i
+       */
        public DataPackage getDataPackage(int i)
        {
          return dataPackages.get(i);

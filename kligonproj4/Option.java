@@ -39,6 +39,7 @@ public abstract class Option
    
    /**
       Accessor for Option Name
+      @return optionName the name of the Option
    */
       public String getOptionName()
       {
@@ -46,6 +47,7 @@ public abstract class Option
       }
    /**
       Accessor for Option Price
+      @return optionPrice the price of the Option
    */
       public double getOptionPrice()
       {
@@ -53,6 +55,7 @@ public abstract class Option
       }
    /**
       Mutator for Option Name
+      @param optionName the name of the option
    */
       public void setOptionName(String optionName)
       {
@@ -60,6 +63,7 @@ public abstract class Option
       }
    /**
       Mutator for Option Price
+      @param optionPrice the price of the option
    */
       public void setOptionPrice(double optionPrice)
       {
@@ -67,6 +71,7 @@ public abstract class Option
       }
    /**
       nicely formatted string for option Price
+      @return words the nicely formatted string of the Option object
    */
       public String toString()
       {

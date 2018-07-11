@@ -61,6 +61,7 @@ public class MonthlyTalkPackage extends Option
    }
 /**
    mutator for set talk price
+   @param talkPrice sets the talk price value
 */
    public void setTalkPrice(double talkPrice)
    {

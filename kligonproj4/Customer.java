@@ -167,7 +167,7 @@ public class Customer
       }
    /**
       accessor for Phone Number
-      
+      @return phoneNumber the phone number of the customer
    */
       public String getPhoneNumber()
       {
@@ -175,6 +175,7 @@ public class Customer
       }
    /**
       accessor for IDNum
+      @return IDNum the ID number for the customer
    */
       public int getIDNum()
       {
@@ -183,6 +184,7 @@ public class Customer
    
    /**
       mutator for Name
+      @param newName the name to set the Customer class too
    */
       public void setName(String newName)
       {
@@ -190,6 +192,7 @@ public class Customer
       }
    /**
       mutator for Address
+      @param newAddress the house number and street name of the customer
    */
       public void setAddress(String newAddress)
       {
@@ -197,6 +200,7 @@ public class Customer
       }
    /**
       mutator for City
+      @param newCity the city to set for the Customer
    */
       public void setCity(String newCity)
       {
@@ -204,6 +208,7 @@ public class Customer
       }
    /**
       mutator for State
+      @param newState the state to set for the Customer's state
    */
       public void setState(String newState)
       {
@@ -211,6 +216,8 @@ public class Customer
       }
    /**
       mutator for Zip Code
+      @param newZipCode the new zip code to set for the Customer's zip code
+      @throws FieldOutOfBounds the Exception to throw when Zip Code doesn't fit the standard 5 digit form
    */
       public void setZipCode(String newZipCode)
          throws FieldOutOfBounds
@@ -219,6 +226,8 @@ public class Customer
       }
    /**
       mutator for Phone Number
+      @param newPhoneNumber the new Phone Number to set for the Customer's Phone Number
+      @throws FieldOutOfBounds the Exception to throw when Phone Number doesn't fit the standard (XXX) XXX-XXXX form
    */
       public void setPhoneNumber(String newPhoneNumber)
          throws FieldOutOfBounds
@@ -256,6 +265,7 @@ public class Customer
       }
    /**
       setting the customer's MonthlyTalkPackage
+      @param choiceNumber the Monthly Talk Package the Customer Chose
    */ 
       public void setMonthlyTalkPackage(MonthlyTalkPackage choiceNumber)
       {
@@ -263,6 +273,7 @@ public class Customer
       }
    /**
       setting the customer's Phone Choice
+      @param choiceNumber the Phone Choice the Customer Chose
    */ 
       public void setPhoneChoice(PhoneChoice choiceNumber)
       {
@@ -270,6 +281,7 @@ public class Customer
       }
    /**
       setting the customer's Data Package
+      @param choiceNumber the Data Package the Customer Chose
    */ 
       public void setDataPackage(DataPackage choiceNumber)
       {
@@ -277,6 +289,7 @@ public class Customer
       }
    /**
       getting the Monthly Talk Package for the Customer
+      @return the Monthly Talk Package
    */
       public MonthlyTalkPackage getMonthlyTalkPackage()
       {
@@ -284,6 +297,7 @@ public class Customer
       }
    /**
       getting the Data Package for the Customer
+      @return the Data Package
    */
       public DataPackage getDataPackage()
       {
@@ -291,6 +305,7 @@ public class Customer
       }   
    /**
       getting the Phone Package for the Customer
+      @return the Phone Choice
    */
       public PhoneChoice getPhoneChoice()
       {
@@ -298,6 +313,7 @@ public class Customer
       }    
    /**
       toString method for Customer class
+      @return words the nicely formatted version of the Customer's ID and bills
    */
       public String toString()
       {
@@ -310,6 +326,8 @@ public class Customer
        }
    /**
       The calculator for the Customer's monthly fee's
+      @param talkPackage the Monthly Talk Package to calculate the customer's bill
+      @param dataPackage the Monthly Data Package to calculate the customer's bill
    */
       public void setMonthlyBill(MonthlyTalkPackage talkPackage, DataPackage dataPackage)
       {
@@ -317,6 +335,7 @@ public class Customer
       }
    /**
       Method to calculate shipping cost for the customer
+      @param zipCode this value is what determines the shipping cost for the customer
    */
       public void setShippingCost(String zipCode)
       {        
@@ -340,6 +359,8 @@ public class Customer
          }
       }
    /**
+      the method that gets the shipping cost to use
+      @return shippingCost the shipping cost based on the Zip Code
    */
       public double getShippingCost()
       {
@@ -347,6 +368,7 @@ public class Customer
       }
    /**
       The calculator for the Customer's startup fee's
+      @param phoneChoice the choice for phone that the customer made
    */
       public void setStartupCost(PhoneChoice phoneChoice)
       {
@@ -354,6 +376,7 @@ public class Customer
       }
    /**
       The accessor for the Customer's startup fee's
+      @return startupBill the startup cost for the customer
    */
       public double getStartupCost()
       {
@@ -361,6 +384,8 @@ public class Customer
       }
    /**
       The accessor for the Customer's monthly bill
+      @return monthlyBill the bill for the customer based on their the Monthly Talk Package
+      and the Data Packages
    */
       public double getMonthlyBill()
       {
@@ -368,6 +393,8 @@ public class Customer
       }
    /**
       Method to check if a string has a pattern
+      @param phoneNumber take the phone number check it against the regex
+      @return boolean whether or not the phone number passes through this checker
    */
       public boolean phoneNumberCheck(String phoneNumber)
       {

@@ -51,7 +51,7 @@ public class DataPackage extends Option
    }
 /**
    the mutatator for the data name section of the DataPackage object
-   @param dateName the name of the data package to set the object to
+   @param dataName the name of the data package to set the object to
 */
    public void setDataName(String dataName)
    {
@@ -59,7 +59,7 @@ public class DataPackage extends Option
    }
 /**
    the mutatator for the data price section of the DataPackage object
-   @param datePrice the price of the data package to set the object to
+   @param dataPrice the price of the data package to set the object to
 */
    public void setDataPrice(double dataPrice)
    {
@@ -67,6 +67,7 @@ public class DataPackage extends Option
    }
 /**
    the nicely formatted string of the Data Package Object
+   @return words a nicely formatted string of the Data Package class
 */
    @Override
    public String toString()
