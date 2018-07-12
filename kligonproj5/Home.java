@@ -3,9 +3,11 @@ Home Class that makes the cat, type, avg monthly cost, and cost per unit for kwh
 
 @author Kyle Ligon
 @version 1.0
+@filename Home.java
+
 */
 
-public class House
+public class Home
 {
 /**
    the category of the homeclass
@@ -30,7 +32,7 @@ public class House
 /**
    the default constructor of the House class
 */
-   public House
+   public Home()
    {
       setCategory("Error");
       setTypeOfFuel("Error");
@@ -44,7 +46,7 @@ public class House
    @param avgMonthlyCost the average monthly cost of the house
    @param costPerUnit the cost by unit of fuel used to head the house
 */
-   public House(String category, String typeOfFuel, double avgMonthlyCost, double costPerUnit)
+   public Home(String category, String typeOfFuel, double avgMonthlyCost, double costPerUnit)
    {
       setCategory(category);
       setTypeOfFuel(typeOfFuel);
@@ -63,7 +65,7 @@ public class House
    the mutator of the Category variable
    @param category the type of home
 */ 
-   public void setCategory(category)
+   public void setCategory(String category)
    {
       this.category = category;
    }
@@ -79,7 +81,7 @@ public class House
    the mutator of the typeOfFuel variable
    @param  typeOfFuel the type of fuel used to hear the house
 */ 
-   public void setTypeOfFuel(typeOfFuel)
+   public void setTypeOfFuel(String typeOfFuel)
    {
       this.typeOfFuel = typeOfFuel;
    }
@@ -95,7 +97,7 @@ public class House
    the mutator of the AvgMonthlyCost variable
    @return avgMonthlyCost avgMonthlyCost the average monthly cost of the house
 */
-   public void setAvgMonthlyCost(avgMonthlyCost)
+   public void setAvgMonthlyCost(double avgMonthlyCost)
    {
       this.avgMonthlyCost = avgMonthlyCost;
    }  
@@ -103,7 +105,7 @@ public class House
    the accessor of the AvgMonthlyCost variable
    @return costPerUnit the cost by unit of fuel used to head the house
 */
-   public String getCostPerUnit()
+   public double getCostPerUnit()
    {
       return costPerUnit;
    }
@@ -111,9 +113,9 @@ public class House
    the mutator of the AvgMonthlyCost variable
    @return costPerUnit the cost by unit of fuel used to head the house
 */
-   public String getCostPerUnit()
+   public void setCostPerUnit(double costPerUnit)
    {
-      return costPerUnit;
+      this.costPerUnit = costPerUnit;
    }
 /**
    the calculator for emission factor based on the type of Fuel in the House
@@ -122,19 +124,19 @@ public class House
 */
    public double calculateEmFact(String category)
    {
-      if(category.equals("Electricity")
+      if(category.equals("Electricity"))
       {
          EMISSION_FACTOR = 1.37;
       }
-      else if(category.equals("Natural Gas")
+      else if(category.equals("Natural Gas"))
       {
          EMISSION_FACTOR = 120.61;
       }
-      else if(category.equals("Fuel Oil")
+      else if(category.equals("Fuel Oil"))
       {
          EMISSION_FACTOR = 22.37;
       }
-      else if(category.equals("Propane")
+      else if(category.equals("Propane"))
       {
          EMISSION_FACTOR = 12.17;
       }
@@ -145,3 +147,13 @@ public class House
       
       return EMISSION_FACTOR;
    }
+/**
+   nicely formatted string for the House class
+   @return words a nicely formatted string
+*/
+   public String toString()
+   {
+      String words = "My " + getCategory() + "'s carbon footprint is " + calculateEmFact(this.category) + " lbs per year.";
+      return words;
+   }
+}
