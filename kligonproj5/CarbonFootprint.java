@@ -3,7 +3,8 @@ calculate for carbon footprint that the rest will takeon Class that makes the ty
 
 @author Kyle Ligon
 @version 1.0
-@filename CarbonFootprint.java
+
+File Name: CarbonFootprint.java
 */
 
 public interface CarbonFootprint

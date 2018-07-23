@@ -60,6 +60,7 @@ public class Food implements CarbonFootprint
    
 /**
    the accessor for the name of the Food
+   @return name the name of the food
 */
    public String getName()
    {
@@ -67,6 +68,7 @@ public class Food implements CarbonFootprint
    }
 /**
    the mutator for the name of the Food
+   @param name the name of the food
 */
    public void setName(String name)
    {
@@ -74,6 +76,7 @@ public class Food implements CarbonFootprint
    }
 /**
    the accessor for the dollars spent on the Food
+   @return dollars the dollars spend on food
 */
    public double getDollars()
    {
@@ -81,6 +84,7 @@ public class Food implements CarbonFootprint
    }
 /**
    the mutator for the dollars spent on the Food
+   @param dollars the dollars spend on food
 */
    public void setDollars(double dollars)
    {
@@ -88,6 +92,7 @@ public class Food implements CarbonFootprint
    }
 /**
    the accessor for the category of the Food
+   @return category the category the food falls under
 */
    public String getCategory()
    {
@@ -95,6 +100,7 @@ public class Food implements CarbonFootprint
    }
 /**
    the mutator for the category of the Food
+   @param category the category the food falls under 
 */
    public void setCategory(String category)
    {
@@ -103,7 +109,7 @@ public class Food implements CarbonFootprint
 /**
    the calculator for emission factor based on the type of Food
    @param category the category of the type of food
-   @return EMISSION_FACTOR the multiplier for the CO2 footprint calculator
+   
 */
    public void setEmFact(String category)
    {
@@ -154,8 +160,8 @@ public class Food implements CarbonFootprint
    public String toString()
    {
       DecimalFormat df = new DecimalFormat("#0.00");
-      String words = "An " + getName() + "'s carbon footprint is " + 
-      String.valueOf(df.format(getCarbonFootprint()));
+      String words = "A(n) " + getName() + "'s carbon footprint is " + 
+      String.valueOf(df.format(getCarbonFootprint())  + " lbs a year");
       return words;
    }
 

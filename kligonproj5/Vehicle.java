@@ -131,7 +131,7 @@ public class Vehicle implements CarbonFootprint
    }
 /**
    the mutator for Number of Miles Per Week
-   @param numMiPerWeek the number of miles per week
+   @param numMiPerWk the number of miles per week
 */
    public void setNumMiPerWk(double numMiPerWk)
    {
@@ -139,7 +139,7 @@ public class Vehicle implements CarbonFootprint
    }
 /**
    the accessor for the fuel efficiency in miles per gallon
-   @return fuelEffPerGal the fuel efficiency per gallon
+   @return fuelEffMPG the fuel efficiency per gallon
 */
    public int getFuelEffMPG()
    {
@@ -147,7 +147,7 @@ public class Vehicle implements CarbonFootprint
    }
 /**
    the mutator for the fuel efficiency in miles per gallon
-   @param fuelEffPerGal the fuel efficiency per gallon
+   @param fuelEffMPG the fuel efficiency per gallon
 */
    public void setFuelEffMPG(int fuelEffMPG)
    {
@@ -170,7 +170,8 @@ public class Vehicle implements CarbonFootprint
    {
       DecimalFormat df = new DecimalFormat("#.00");
       String words = "My " + getYear() + " " + getMake() + " " + getModel() + 
-      "'s carbon footprint is " + String.valueOf(df.format(getCarbonFootprint()));
+      "'s carbon footprint is " + String.valueOf(df.format(getCarbonFootprint())
+       + " lbs a year");
       return words;
    }
 

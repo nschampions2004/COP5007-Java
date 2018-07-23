@@ -101,7 +101,7 @@ public class Home implements CarbonFootprint
    }    
 /**
    the mutator of the AvgMonthlyCost variable
-   @return avgMonthlyCost avgMonthlyCost the average monthly cost of the house
+   @param avgMonthlyCost avgMonthlyCost the average monthly cost of the house
 */
    public void setAvgMonthlyCost(double avgMonthlyCost)
    {
@@ -117,7 +117,7 @@ public class Home implements CarbonFootprint
    }
 /**
    the mutator of the AvgMonthlyCost variable
-   @return costPerUnit the cost by unit of fuel used to head the house
+   @param costPerUnit the cost by unit of fuel used to head the house
 */
    public void setCostPerUnit(double costPerUnit)
    {
@@ -126,7 +126,6 @@ public class Home implements CarbonFootprint
 /**
    the calculator for emission factor based on the type of Fuel in the House
    @param category the category of the type of house
-   @return EMISSION_FACTOR the multiplier for 
 */
    public void setEmFact(String category)
    {
@@ -169,7 +168,7 @@ public class Home implements CarbonFootprint
    {
       DecimalFormat df = new DecimalFormat("#.00");
       String words = "My " + getCategory() + "'s carbon footprint is " + 
-      String.valueOf(df.format(getCarbonFootprint()));
+      String.valueOf(df.format(getCarbonFootprint())) + " lbs a year";
       return words;
    }
 }
