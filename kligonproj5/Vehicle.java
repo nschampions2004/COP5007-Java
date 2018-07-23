@@ -30,10 +30,6 @@ public class Vehicle implements CarbonFootprint
 */
    private int fuelEffMPG;
 /**
-   the carbon footprint double to be returned
-*/
-   public double carbonFootprint;
-/**
    the number of weeks in a year
 */
    private static final int NUM_WK_YR = 52;

@@ -17,20 +17,6 @@ public class CarbonTester
    public static void main (String[] args)
       throws FieldOutOfBounds
    {
-   //general testing
-   
-   //setting the first Home object
-   CarbonFootprint newHome = new Home("Condo", "Natural Gas", 130.11, 0.65);
-   System.out.println(newHome.toString());
-   
-   //setting the Transportation object
-   CarbonFootprint newVehicle = new Vehicle("Toyota", "Corolla", "2017", 360, 36);
-   System.out.println(newVehicle.toString());
-   
-   //setting the Food object
-   CarbonFootprint newFood = new Food("Apple", 3.99, "Fruits & vegetables");
-   System.out.println(newFood.toString());
-   
    //defining the Array List of CarbonFootprint Objects
    ArrayList<CarbonFootprint> carbonStorage = new ArrayList<CarbonFootprint>();
    
@@ -94,7 +80,6 @@ public class CarbonTester
    {
       System.out.println(carbonStorage.get(i).toString());
    }
-   System.out.println("\nClosing the file...");
-   
+
  }
 }
