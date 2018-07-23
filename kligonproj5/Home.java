@@ -169,8 +169,7 @@ public class Home implements CarbonFootprint
    {
       DecimalFormat df = new DecimalFormat("#.00");
       String words = "My " + getCategory() + "'s carbon footprint is " + 
-      String.valueOf(df.format(getCarbonFootprint())) + 
-      " lbs per year.  With an emission factor of " + this.EMISSION_FACTOR;
+      String.valueOf(df.format(getCarbonFootprint()));
       return words;
    }
 }

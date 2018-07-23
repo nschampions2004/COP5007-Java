@@ -39,10 +39,10 @@ public class CarbonTester
    Scanner inFS = null;
    int scoreNum = 0;
    String objectType = "";
-   inFS.useDelimeter("|");
+   
    
    //go to open the file
-   System.out.println("Attempting to open dataReadIn.txt...");
+   System.out.println("\nAttempting to open dataReadIn.txt... \n");
    try
    {   
       fileByteStream = new FileInputStream("dataReadIn.txt");
@@ -59,29 +59,42 @@ public class CarbonTester
    {
       //get the type of object to create to add to the ArrayList of CarbonFootprints
       objectType = inFS.nextLine();
+      inFS.useDelimiter("\\|");
       if(objectType.equals("Food"))
       {
-      
+         String foodName = inFS.next();
+         double foodPrice = Double.valueOf(inFS.next());
+         String foodCategory = inFS.next();
+         CarbonFootprint tempFood = new Food(foodName, foodPrice, foodCategory);
+         carbonStorage.add(tempFood);
       }
       else if (objectType.equals("Vehicle"))
       {
-      //add stuff
+         String vehicleMake = inFS.next();
+         String vehicleModel = inFS.next();
+         String vehicleYear = inFS.next();
+         double vehicleNumMiPerWeek = Double.valueOf(inFS.next());
+         int vehicleFuelEffMPG = Integer.valueOf(inFS.next());
+         CarbonFootprint tempVehicle = new Vehicle(vehicleMake, vehicleModel, vehicleYear, vehicleNumMiPerWeek, vehicleFuelEffMPG);
+         carbonStorage.add(tempVehicle);
       }
       else if (objectType.equals("Home"))
       {
-      //add stuff
-      }
-      else
-      {
-         throw new FieldOutOfBounds
-            ("Illegal Object Entered");
+         String homeCategory = inFS.next();
+         String homeTypeOfFuel = inFS.next();
+         double homeAvgMonthlyCost = Double.valueOf(inFS.next());
+         double homeCostPerUnit = Double.valueOf(inFS.next());
+         CarbonFootprint tempHome = new Home(homeCategory, homeTypeOfFuel, homeAvgMonthlyCost, homeCostPerUnit);
+         carbonStorage.add(tempHome);
       }
    }
    
    //finished reading the file, output the results
    for(int i = 0; i < carbonStorage.size(); i++)
    {
-      System.out.println(carbonStorgage.get(i).toString());
+      System.out.println(carbonStorage.get(i).toString());
    }
+   System.out.println("\nClosing the file...");
+   
  }
 }
