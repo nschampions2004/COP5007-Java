@@ -6,8 +6,9 @@ Home Class that makes the cat, type, avg monthly cost, and cost per unit for kwh
 @filename Home.java
 
 */
+import java.text.DecimalFormat;
 
-public class Home
+public class Home implements CarbonFootprint
 {
 /**
    the category of the homeclass
@@ -29,6 +30,10 @@ public class Home
    the factor to use for emissions
 */
    private double EMISSION_FACTOR;
+/**
+   the months in a year
+*/
+   private final static int MONTHS_IN_YEAR = 12; 
 /**
    the default constructor of the House class
 */
@@ -52,6 +57,7 @@ public class Home
       setTypeOfFuel(typeOfFuel);
       setAvgMonthlyCost(avgMonthlyCost);
       setCostPerUnit(costPerUnit);
+      setEmFact(typeOfFuel);
    }
 /**
    the accessor of the category variable
@@ -122,38 +128,49 @@ public class Home
    @param category the category of the type of house
    @return EMISSION_FACTOR the multiplier for 
 */
-   public double calculateEmFact(String category)
+   public void setEmFact(String category)
    {
       if(category.equals("Electricity"))
       {
-         EMISSION_FACTOR = 1.37;
+         this.EMISSION_FACTOR = 1.37;
       }
       else if(category.equals("Natural Gas"))
       {
-         EMISSION_FACTOR = 120.61;
+         this.EMISSION_FACTOR = 120.61;
       }
       else if(category.equals("Fuel Oil"))
       {
-         EMISSION_FACTOR = 22.37;
+         this.EMISSION_FACTOR = 22.37;
       }
       else if(category.equals("Propane"))
       {
-         EMISSION_FACTOR = 12.17;
+         this.EMISSION_FACTOR = 12.17;
       }
       else
       {
-         EMISSION_FACTOR = 9999.99;
+         this.EMISSION_FACTOR = 9999.99;
       }
-      
-      return EMISSION_FACTOR;
    }
+/**
+   the calculator for CarbonFootprint
+*/
+   @Override
+   public double getCarbonFootprint()
+   {
+      double carbonFootprint = (this.getAvgMonthlyCost() / this.costPerUnit) * MONTHS_IN_YEAR * this.EMISSION_FACTOR;
+      return carbonFootprint;
+   }
+
 /**
    nicely formatted string for the House class
    @return words a nicely formatted string
 */
    public String toString()
    {
-      String words = "My " + getCategory() + "'s carbon footprint is " + calculateEmFact(this.category) + " lbs per year.";
+      DecimalFormat df = new DecimalFormat("#.00");
+      String words = "My " + getCategory() + "'s carbon footprint is " + 
+      String.valueOf(df.format(getCarbonFootprint())) + 
+      " lbs per year.  With an emission factor of " + this.EMISSION_FACTOR;
       return words;
    }
 }

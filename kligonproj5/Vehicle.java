@@ -6,7 +6,7 @@ Vehicle Class that makes the type, number of miles driven per week, and fuel eff
 @filename Vehicle.java
 */
 
-
+import java.text.DecimalFormat;
 public class Vehicle implements CarbonFootprint
 {
 /**
@@ -33,6 +33,18 @@ public class Vehicle implements CarbonFootprint
    the carbon footprint double to be returned
 */
    public double carbonFootprint;
+/**
+   the number of weeks in a year
+*/
+   private static final int NUM_WK_YR = 52;
+/**
+   the number of pounds of CO2 emitted per gallon
+*/
+   private static final double CO2_EMIT_PER_GAL = 19.4;
+/**
+   the emissions of greenhouse gases other than CO2
+*/ 
+   private static final double EMISSION_OTHER_GASSES = 100 / 95;
 /**
    the default object for vehicle
 */
@@ -84,7 +96,6 @@ public class Vehicle implements CarbonFootprint
    {
       return model;
    }
-
 /**
    the accessor for model
    @param model the model of the vehicle
@@ -126,7 +137,6 @@ public class Vehicle implements CarbonFootprint
    {
       this.numMiPerWk = numMiPerWk;
    }
-
 /**
    the accessor for the fuel efficiency in miles per gallon
    @return fuelEffPerGal the fuel efficiency per gallon
@@ -144,14 +154,25 @@ public class Vehicle implements CarbonFootprint
       this.fuelEffMPG = fuelEffMPG;
    }
 /**
-   the accessor and calculator for Carbon Footprint in the Vehicle class implementing from
-   Carbon Footprint
+   the overriden calculator for CarbonFootprint
 */
-   public double getCarbonFootPrint()
+   @Override
+   public double getCarbonFootprint()
    {
+      double carbonFootprint = ((getNumMiPerWk() * NUM_WK_YR) / getFuelEffMPG()) * CO2_EMIT_PER_GAL * EMISSION_OTHER_GASSES;
       return carbonFootprint;
    }
-
+/**
+   nicely formatted string for the Vehicle class
+   @return words a nicely formatted string
+*/
+   public String toString()
+   {
+      DecimalFormat df = new DecimalFormat("#.00");
+      String words = "My " + getYear() + " " + getMake() + " " + getModel() + 
+      "'s carbon footprint is " + String.valueOf(df.format(getCarbonFootprint()));
+      return words;
+   }
 
 }
 

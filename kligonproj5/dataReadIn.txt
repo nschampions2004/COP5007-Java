@@ -1,0 +1,18 @@
+Food
+Apple|3.99|Fruits & vegetables
+Vehicle
+Toyota|Camry|2007|480|24 
+Home
+Condo|Natural Gas|130.11|0.65
+Home
+Private Home|Electricity|240.00|2.55
+Vehicle
+Nissan|Rogue|2017|520|22
+Food
+Milk|5.99|Dairy
+Vehicle
+Ford|Mustang|2013|520|13
+Food
+New York Strip|30.99|Meat, fish, & eggs
+Home
+Trailer|Oil|120.01|13.55

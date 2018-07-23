@@ -7,8 +7,7 @@ calculate for carbon footprint that the rest will takeon Class that makes the ty
 */
 
 public interface CarbonFootprint
-{
-   double carbonFootprint = 9999.00;
-   
-   double getCarbonFootPrint();
+{   
+   double getCarbonFootprint();
 }
+
