@@ -51,6 +51,7 @@ public class Food implements CarbonFootprint
    @param category the category of the food
 */
    public Food(String name, double dollars, String category)
+      throws FieldOutOfBounds
    {
       setName(name);
       setDollars(dollars);
@@ -85,10 +86,27 @@ public class Food implements CarbonFootprint
 /**
    the mutator for the dollars spent on the Food
    @param dollars the dollars spend on food
+   @exception FieldOutOfBounds Exception for dollars less than 0
 */
    public void setDollars(double dollars)
    {
-      this.dollars = dollars;
+      try
+      {
+         if(dollars < 0)
+         {
+            throw new FieldOutOfBounds
+               ("Error: Dollars must be greater than 0. Please enter a positive value.");
+         }
+         else
+         {
+            this.dollars = dollars;
+         }
+      }
+      catch (Exception FieldOutOfBounds)
+      {
+         this.dollars = 9999.99;
+         System.out.println(FieldOutOfBounds.getMessage());
+      }
    }
 /**
    the accessor for the category of the Food

@@ -52,6 +52,7 @@ public class Home implements CarbonFootprint
    @param costPerUnit the cost by unit of fuel used to head the house
 */
    public Home(String category, String typeOfFuel, double avgMonthlyCost, double costPerUnit)
+      throws FieldOutOfBounds
    {
       setCategory(category);
       setTypeOfFuel(typeOfFuel);
@@ -102,10 +103,27 @@ public class Home implements CarbonFootprint
 /**
    the mutator of the AvgMonthlyCost variable
    @param avgMonthlyCost avgMonthlyCost the average monthly cost of the house
+   @exception FieldOutOfBounds thrown when a negative average Monthly Cost is entered
 */
    public void setAvgMonthlyCost(double avgMonthlyCost)
    {
-      this.avgMonthlyCost = avgMonthlyCost;
+      try
+      {
+         if(avgMonthlyCost < 0)
+         {
+            throw new FieldOutOfBounds
+               ("Average Monthly Cost must be greater than or equal to 0");
+         }
+         else
+         {
+            this.avgMonthlyCost = avgMonthlyCost;
+         }
+      }
+      catch (Exception FieldOutOfBounds)
+      {
+         this.avgMonthlyCost = 9999.99;
+         System.out.println(FieldOutOfBounds.getMessage());
+      }  
    }  
 /**
    the accessor of the AvgMonthlyCost variable
@@ -118,10 +136,27 @@ public class Home implements CarbonFootprint
 /**
    the mutator of the AvgMonthlyCost variable
    @param costPerUnit the cost by unit of fuel used to head the house
+   @exception FieldOutOfBounds thrown when a negative average Monthly Cost is entered
 */
    public void setCostPerUnit(double costPerUnit)
    {
-      this.costPerUnit = costPerUnit;
+      try
+      {
+         if(costPerUnit >= 0)
+         {
+            this.costPerUnit = costPerUnit;
+         }
+         else 
+         {
+            throw new FieldOutOfBounds
+               ("Cost Per Unit must be greater than or equal to 0");
+         }
+      }
+      catch (Exception FieldOutOfBounds)
+      {
+         this.costPerUnit = 9999.99;
+         System.out.println(FieldOutOfBounds.getMessage());
+      }
    }
 /**
    the calculator for emission factor based on the type of Fuel in the House

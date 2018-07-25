@@ -59,8 +59,11 @@ public class Vehicle implements CarbonFootprint
    @param year the year String to set the Vehicle class to
    @param numMiPerWeek the number of Miles per week 
    @param fuelEffMPG the fuel efficiency in miles per gallon
+   @exception FieldOutOfBounds thrown when a negative number of miles driven is entered
+   @exception FieldOutOfBounds thrown when a negative fuel efficiency is entered
 */
    public Vehicle(String make, String model, String year, double numMiPerWeek, int fuelEffMPG)
+      throws FieldOutOfBounds
    {
       setMake(make);
       setModel(model);
@@ -128,10 +131,27 @@ public class Vehicle implements CarbonFootprint
 /**
    the mutator for Number of Miles Per Week
    @param numMiPerWk the number of miles per week
+   @exception FieldOutOfBounds thrown when a negative number of miles driven is entered
 */
    public void setNumMiPerWk(double numMiPerWk)
    {
-      this.numMiPerWk = numMiPerWk;
+      try
+      {
+         if(numMiPerWk >= 0)
+         {
+            this.numMiPerWk = numMiPerWk;
+         }
+         else
+         {
+            throw new FieldOutOfBounds
+               ("Number of miles travelled per week must be greater than or equal to 0");
+         }
+      }
+      catch (FieldOutOfBounds e)
+      {
+         this.numMiPerWk = 9999.99;
+         System.out.println(e.getMessage());
+      }
    }
 /**
    the accessor for the fuel efficiency in miles per gallon
@@ -144,10 +164,26 @@ public class Vehicle implements CarbonFootprint
 /**
    the mutator for the fuel efficiency in miles per gallon
    @param fuelEffMPG the fuel efficiency per gallon
+   @exception FieldOutOfBounds thrown when a negative number of fuel efficiency is entered
 */
    public void setFuelEffMPG(int fuelEffMPG)
    {
-      this.fuelEffMPG = fuelEffMPG;
+      try
+      {
+         if(fuelEffMPG >= 0)
+         {
+            this.fuelEffMPG = fuelEffMPG;
+         }
+         else
+         {
+            throw new FieldOutOfBounds("Fuel Efficiency must be greater than or equal to 0");
+         }
+      }
+      catch (FieldOutOfBounds q)
+      {
+         this.fuelEffMPG = 9999;
+         System.out.println(q.getMessage());
+      }
    }
 /**
    the overriden calculator for CarbonFootprint
