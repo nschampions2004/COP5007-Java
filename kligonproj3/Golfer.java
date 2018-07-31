@@ -18,7 +18,6 @@ public class Golfer extends Player
    The home course of the Golfer.
 */
    private String homeCourse;
-
 /**
    Storage of the golfer's scores as an Array List.
 */

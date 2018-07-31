@@ -24,7 +24,7 @@ public abstract class Player
    */
    	private static	int nextIDNum = 999;
    /**
-      This constructor makes the default player obkect that the Golfer and Bowler will inherit
+      This constructor makes the default player object that the Golfer and Bowler will inherit
    */
       public Player()
       {
