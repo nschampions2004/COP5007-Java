@@ -44,6 +44,7 @@ public class OrderFrame extends JFrame //implements ActionListener, Border
       calculateButton = new JButton("Calculate");
       //the exit button for the order calculator
       exitButton = new JButton("Exit");
+      
       //the white bread radio button
       whiteBread = new JRadioButton("White");
       //the wheat bread radio button
@@ -53,6 +54,13 @@ public class OrderFrame extends JFrame //implements ActionListener, Border
       //adding them bread buttons to the button group
       bg.add(whiteBread);
       bg.add(wheatBread);
+      //adding the bread section to the pane
+      breadPanel.setLayout(new GridLayout(2, 0, 2, 2));
+      Border breadBorder = BorderFactory.createTitledBorder("Bread");
+      breadPanel.setBorder(breadBorder);
+      breadPanel.add(whiteBread);
+      breadPanel.add(wheatBread);
+      
       //the no coffee radio button
       noCoffee = new JRadioButton("None");
       //the reg Coffee radio button
@@ -67,67 +75,56 @@ public class OrderFrame extends JFrame //implements ActionListener, Border
       bg1.add(regCoffee);
       bg1.add(decafCoffee);
       bg1.add(cappuccino);
-          
-      
-      
-      breadPanel.setLayout(new GridLayout(2, 0, 2, 2));
-      Border breadBorder = BorderFactory.createTitledBorder("Bread");
-      breadPanel.setBorder(breadBorder);
-      breadPanel.add(whiteBread);
-      breadPanel.add(wheatBread);
-      
+      //the layout for the coffee section
       coffeePanel.setLayout(new GridLayout(4, 0, 2, 2));
       Border coffeeBorder = BorderFactory.createTitledBorder("Coffee");
-      breadPanel.setBorder(coffeeBorder);
-      breadPanel.add(noCoffee);
-      breadPanel.add(regCoffee);
-      breadPanel.add(decafCoffee);
-      breadPanel.add(cappuccino);
-      
-      
-      
-      
-            
+      coffeePanel.setBorder(coffeeBorder);
+      coffeePanel.add(noCoffee);
+      coffeePanel.add(regCoffee);
+      coffeePanel.add(decafCoffee);
+      coffeePanel.add(cappuccino);
+      //the 
       layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(10, 10, 0, 0);
+      layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 1;
+      layoutConst.gridy = 1;
+      add(coffeePanel, layoutConst);
+      
+                  
+      /*layoutConst = new GridBagConstraints();
       layoutConst.insets = new Insets(10, 10, 1, 0);
       layoutConst.fill = GridBagConstraints.HORIZONTAL;
       layoutConst.gridx = 0;
       layoutConst.gridy = 0;
-      layoutConst.gridwidth = 6;
       add(l, layoutConst);
-            
+           
       //the calculate button for the frame
       layoutConst = new GridBagConstraints();
-      layoutConst.insets = new Insets(1, 10, 0, 0);
+      //layoutConst.insets = new Insets(1, 10, 0, 0);
       //layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 3;
+      layoutConst.gridx = 2;
       layoutConst.gridy = 2;
       add(calculateButton, layoutConst);      
       //the exit button for the frame
       layoutConst = new GridBagConstraints();
-      layoutConst.insets = new Insets(10, 10, 10, 10);
+      //layoutConst.insets = new Insets(10, 10, 10, 10);
       //layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 3;
+      layoutConst.gridx = 1;
       layoutConst.gridy = 2;
-      add(exitButton);
+      add(exitButton, layoutConst);
+      
       //the bread panel 
       layoutConst = new GridBagConstraints();
       layoutConst.insets = new Insets(10, 10, 0, 0);
-      layoutConst.fill = GridBagConstraints.VERTICAL;
-      // layoutConst.gridx = 1;
-//       layoutConst.gridy = 1;
-      add(breadPanel);
+      layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 0;
+      layoutConst.gridy = 1;
+      add(breadPanel, layoutConst);
+      */
       //the coffee panel
-      layoutConst = new GridBagConstraints();
-      layoutConst.insets = new Insets(10, 10, 0, 0);
-      layoutConst.fill = GridBagConstraints.VERTICAL;
-       layoutConst.gridx = 1;
-       layoutConst.gridy = 1;
-       add(coffeePanel);
       
-      
-
-   }
+}
 
 
    public static void main(String [] args )
