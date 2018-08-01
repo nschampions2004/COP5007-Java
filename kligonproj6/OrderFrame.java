@@ -7,42 +7,87 @@ COP5007 Programming Project #: 6
 File Name: OrderFrame.java
 */
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import java.awt.Container;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.Border;
 
-public class OrderFrame extends JFrame //implements ActionListener 
+public class OrderFrame extends JFrame //implements ActionListener, Border
 {
    //holder for the pane
    private Container contents;
    private JButton calculateButton;
-   private JButton exitButton;   
+   private JButton exitButton;
+   private JRadioButton whiteBread;
+   private JRadioButton  wheatBread;
+   private JPanel breadPanel = new JPanel();
+   private JLabel breadPanelLabel = new JLabel("Bread");
+   private JRadioButton noCoffee;
+   private JRadioButton regCoffee;
+   private JRadioButton decafCoffee;
+   private JRadioButton cappuccino;
+   private JPanel coffeePanel = new JPanel();
+   private JLabel coffeePanelLabel = new JLabel("Coffee");
+   
    public OrderFrame( )
    {
       setTitle("Order Calculator");
       contents = getContentPane( );
       setSize( 600, 600);
       setVisible( true );
+      setLayout(new GridBagLayout());
       GridBagConstraints layoutConst = null; 
       //the welcome message for the order calculator      
       JLabel l = new JLabel("Welcome to Johnny's Sandwich Shop");
+      //the calculcate button for the order calculator
       calculateButton = new JButton("Calculate");
+      //the exit button for the order calculator
       exitButton = new JButton("Exit");
+      //the white bread radio button
+      whiteBread = new JRadioButton("White");
+      //the wheat bread radio button
+      wheatBread = new JRadioButton("Wheat");
+      //the bread button group
+      ButtonGroup bg = new ButtonGroup();
+      //adding them bread buttons to the button group
+      bg.add(whiteBread);
+      bg.add(wheatBread);
+      //the no coffee radio button
+      noCoffee = new JRadioButton("None");
+      //the reg Coffee radio button
+      regCoffee = new JRadioButton("Regular Coffee");
+      //the decaf coffee radio button
+      decafCoffee = new JRadioButton("Decaf Coffee");
+      //the cappuccion radio button
+      cappuccino = new JRadioButton("Cappuccino");
+      //the button group holding them altogether
+      ButtonGroup bg1 = new ButtonGroup();
+      bg1.add(noCoffee);
+      bg1.add(regCoffee);
+      bg1.add(decafCoffee);
+      bg1.add(cappuccino);
+          
       
-      setLayout(new GridBagLayout());
       
+      breadPanel.setLayout(new GridLayout(2, 0, 2, 2));
+      Border breadBorder = BorderFactory.createTitledBorder("Bread");
+      breadPanel.setBorder(breadBorder);
+      breadPanel.add(whiteBread);
+      breadPanel.add(wheatBread);
+      
+      coffeePanel.setLayout(new GridLayout(4, 0, 2, 2));
+      Border coffeeBorder = BorderFactory.createTitledBorder("Coffee");
+      breadPanel.setBorder(coffeeBorder);
+      breadPanel.add(noCoffee);
+      breadPanel.add(regCoffee);
+      breadPanel.add(decafCoffee);
+      breadPanel.add(cappuccino);
+      
+      
+      
+      
+            
       layoutConst = new GridBagConstraints();
       layoutConst.insets = new Insets(10, 10, 1, 0);
       layoutConst.fill = GridBagConstraints.HORIZONTAL;
@@ -54,17 +99,34 @@ public class OrderFrame extends JFrame //implements ActionListener
       //the calculate button for the frame
       layoutConst = new GridBagConstraints();
       layoutConst.insets = new Insets(1, 10, 0, 0);
-      layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 0;
-      layoutConst.gridy = 1;
+      //layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 3;
+      layoutConst.gridy = 2;
       add(calculateButton, layoutConst);      
       //the exit button for the frame
       layoutConst = new GridBagConstraints();
       layoutConst.insets = new Insets(10, 10, 10, 10);
-      layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 1;
-      layoutConst.gridy = 1;
+      //layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 3;
+      layoutConst.gridy = 2;
       add(exitButton);
+      //the bread panel 
+      layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(10, 10, 0, 0);
+      layoutConst.fill = GridBagConstraints.VERTICAL;
+      // layoutConst.gridx = 1;
+//       layoutConst.gridy = 1;
+      add(breadPanel);
+      //the coffee panel
+      layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(10, 10, 0, 0);
+      layoutConst.fill = GridBagConstraints.VERTICAL;
+       layoutConst.gridx = 1;
+       layoutConst.gridy = 1;
+       add(coffeePanel);
+      
+      
+
    }
 
 
