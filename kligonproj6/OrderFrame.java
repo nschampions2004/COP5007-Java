@@ -12,6 +12,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -33,12 +35,36 @@ public class OrderFrame extends JFrame //implements ActionListener
       contents = getContentPane( );
       setSize( 600, 600);
       setVisible( true );
+      GridBagConstraints layoutConst = null; 
+      //the welcome message for the order calculator      
+      JLabel l = new JLabel("Welcome to Johnny's Sandwich Shop");
+      calculateButton = new JButton("Calculate");
+      exitButton = new JButton("Exit");
+      
+      setLayout(new GridBagLayout());
+      
+      layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(10, 10, 1, 0);
+      layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 0;
+      layoutConst.gridy = 0;
+      layoutConst.gridwidth = 6;
+      add(l, layoutConst);
             
       //the calculate button for the frame
-      calculateButton = new JButton("Calculate");
-            
+      layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(1, 10, 0, 0);
+      layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 0;
+      layoutConst.gridy = 1;
+      add(calculateButton, layoutConst);      
       //the exit button for the frame
-      exitButton = new JButton("Exit");
+      layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(10, 10, 10, 10);
+      layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 1;
+      layoutConst.gridy = 1;
+      add(exitButton);
    }
 
 
