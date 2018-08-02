@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.Dimension;
 
 public class OrderFrame extends JFrame //implements ActionListener, Border
 {
@@ -27,111 +28,89 @@ public class OrderFrame extends JFrame //implements ActionListener, Border
    private JRadioButton regCoffee;
    private JRadioButton decafCoffee;
    private JRadioButton cappuccino;
-   private JPanel coffeePanel = new JPanel();
+   
    private JLabel coffeePanelLabel = new JLabel("Coffee");
    
-   public OrderFrame( )
-   {
-      setTitle("Order Calculator");
-      contents = getContentPane( );
-      setSize( 600, 600);
-      setVisible( true );
-      setLayout(new GridBagLayout());
-      GridBagConstraints layoutConst = null; 
-      //the welcome message for the order calculator      
-      JLabel l = new JLabel("Welcome to Johnny's Sandwich Shop");
-      //the calculcate button for the order calculator
-      calculateButton = new JButton("Calculate");
-      //the exit button for the order calculator
-      exitButton = new JButton("Exit");
+   
+  public static void main(String [] args )
+  {
+     JFrame myFrame = new JFrame("Order Calculator");
+     myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     myFrame.setPreferredSize(new Dimension(400, 300));
+     Container myPane = myFrame.getContentPane();
+     JLabel l = new JLabel("Welcome to Johnny's Sandwich Shop");
+     myPane.setLayout(new GridBagLayout());
+     GridBagConstraints c = new GridBagConstraints();
+     
+     myFrame.add(l, c);
+     myFrame.add(getCoffeePanel(), c);
+     
+     myFrame.add(getBreadPanel(), c);
+     myFrame.setVisible(true);
+  }
+  
+//   setTitle("Order Calculator");
+//   contents = getContentPane( );
+//   setSize( 600, 600);
+//   setVisible( true );
+//   setLayout(new GridBagLayout());
+//   GridBagConstraints layoutConst = null; 
+//   the welcome message for the order calculator      
+//   
+//   the calculcate button for the order calculator
+//   calculateButton = new JButton("Calculate");
+//   the exit button for the order calculator
+//   exitButton = new JButton("Exit");
+//       
+      private static JPanel getCoffeePanel()
+      {
+         //the no coffee radio button
+         JRadioButton noCoffee = new JRadioButton("None");
+         //the reg Coffee radio button
+         JRadioButton regCoffee = new JRadioButton("Regular Coffee");
+         //the decaf coffee radio button
+         JRadioButton decafCoffee = new JRadioButton("Decaf Coffee");
+         //the cappuccion radio button
+         JRadioButton cappuccino = new JRadioButton("Cappuccino");
+         //the button group holding them altogether
+         ButtonGroup bg1 = new ButtonGroup();
+         bg1.add(noCoffee);
+         bg1.add(regCoffee);
+         bg1.add(decafCoffee);
+         bg1.add(cappuccino);
+         JPanel coffeePanel = new JPanel(new GridBagLayout());
+         Box coffeeBox = Box.createVerticalBox();
+         coffeeBox.add(noCoffee);
+         coffeeBox.add(regCoffee);
+         coffeeBox.add(decafCoffee);
+         coffeeBox.add(cappuccino);
+         coffeeBox.setBorder(BorderFactory.createTitledBorder("Coffee"));
+         coffeePanel.add(coffeeBox);
+         
+         return coffeePanel;
+      }
       
-      //the white bread radio button
-      whiteBread = new JRadioButton("White");
-      //the wheat bread radio button
-      wheatBread = new JRadioButton("Wheat");
-      //the bread button group
-      ButtonGroup bg = new ButtonGroup();
-      //adding them bread buttons to the button group
-      bg.add(whiteBread);
-      bg.add(wheatBread);
-      //adding the bread section to the pane
-      breadPanel.setLayout(new GridLayout(2, 0, 2, 2));
-      Border breadBorder = BorderFactory.createTitledBorder("Bread");
-      breadPanel.setBorder(breadBorder);
-      breadPanel.add(whiteBread);
-      breadPanel.add(wheatBread);
-      
-      //the no coffee radio button
-      noCoffee = new JRadioButton("None");
-      //the reg Coffee radio button
-      regCoffee = new JRadioButton("Regular Coffee");
-      //the decaf coffee radio button
-      decafCoffee = new JRadioButton("Decaf Coffee");
-      //the cappuccion radio button
-      cappuccino = new JRadioButton("Cappuccino");
-      //the button group holding them altogether
-      ButtonGroup bg1 = new ButtonGroup();
-      bg1.add(noCoffee);
-      bg1.add(regCoffee);
-      bg1.add(decafCoffee);
-      bg1.add(cappuccino);
-      //the layout for the coffee section
-      coffeePanel.setLayout(new GridLayout(4, 0, 2, 2));
-      Border coffeeBorder = BorderFactory.createTitledBorder("Coffee");
-      coffeePanel.setBorder(coffeeBorder);
-      coffeePanel.add(noCoffee);
-      coffeePanel.add(regCoffee);
-      coffeePanel.add(decafCoffee);
-      coffeePanel.add(cappuccino);
-      //the 
-      layoutConst = new GridBagConstraints();
-      layoutConst.insets = new Insets(10, 10, 0, 0);
-      layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 1;
-      layoutConst.gridy = 1;
-      add(coffeePanel, layoutConst);
-      
-                  
-      /*layoutConst = new GridBagConstraints();
-      layoutConst.insets = new Insets(10, 10, 1, 0);
-      layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 0;
-      layoutConst.gridy = 0;
-      add(l, layoutConst);
-           
-      //the calculate button for the frame
-      layoutConst = new GridBagConstraints();
-      //layoutConst.insets = new Insets(1, 10, 0, 0);
-      //layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 2;
-      layoutConst.gridy = 2;
-      add(calculateButton, layoutConst);      
-      //the exit button for the frame
-      layoutConst = new GridBagConstraints();
-      //layoutConst.insets = new Insets(10, 10, 10, 10);
-      //layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 1;
-      layoutConst.gridy = 2;
-      add(exitButton, layoutConst);
-      
-      //the bread panel 
-      layoutConst = new GridBagConstraints();
-      layoutConst.insets = new Insets(10, 10, 0, 0);
-      layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 0;
-      layoutConst.gridy = 1;
-      add(breadPanel, layoutConst);
-      */
-      //the coffee panel
-      
-}
-
-
-   public static void main(String [] args )
-   {
-      OrderFrame orderCalculatorFrame = new OrderFrame( );
-      orderCalculatorFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE); 
-   }
+      private static JPanel getBreadPanel()
+      {
+        //   the white bread radio button
+        JRadioButton whiteBread = new JRadioButton("White");
+        //  the wheat bread radio button
+        JRadioButton wheatBread = new JRadioButton("Wheat");
+        //  the bread button group
+        ButtonGroup bg = new ButtonGroup();
+        //  adding them bread buttons to the button group
+        bg.add(whiteBread);
+        bg.add(wheatBread);
+        //  adding the bread section to the pane
+        JPanel breadPanel = new JPanel(new GridBagLayout());
+        Box breadBox = Box.createVerticalBox();
+        breadBox.setBorder(BorderFactory.createTitledBorder("Bread"));
+        breadBox.add(whiteBread);
+        breadBox.add(wheatBread);
+        breadPanel.add(breadBox);
+        
+        return breadPanel;
+      }   
 }
 
    
