@@ -41,19 +41,19 @@ public class MeatCheese extends ChoiceSections
       {
          if(type.equals("Cheese"))
          {
-            this.cost = 1.00;
+            this.cost = this.cost + 1.00;
          }
-         else if(type.equals("Roast Beef"))
+         if(type.equals("Roast Beef"))
          {
-            this.cost = 3.75;
+            this.cost = this.cost + 3.75;
          }
-         else if(type.equals("Turkey"))
+         if(type.equals("Turkey"))
          {
-            this.cost = 3.25;
+            this.cost = this.cost + 3.25;
          }
-         else if(type.equals("Ham"))
+         if(type.equals("Ham"))
          {
-            this.cost = 3.00;
+            this.cost = this.cost + 3.00;
          }
       }
 }
